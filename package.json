@@ -1,0 +1,56 @@
+{
+  "name": "typescript-library-starter",
+  "version": "1.0.0",
+  "description": "Yet another typescript library starter template",
+  "keywords": [
+    "typescript",
+    "library",
+    "starter",
+    "template"
+  ],
+  "homepage": "https://github.com/gjuchault/typescript-library-starter",
+  "bugs": {
+    "url": "https://github.com/gjuchault/typescript-library-starter/issues",
+    "email": "gabriel.juchault@gmail.com"
+  },
+  "author": "Gabriel Juchault <gabriel.juchauult@gmail.com>",
+  "repository": "gjuchault/typescript-library-starter",
+  "main": "./build/cjs/index.js",
+  "module": "./build/esm/index.js",
+  "license": "MIT",
+  "engines": {
+    "node": "> 14"
+  },
+  "scripts": {
+    "build": "yarn type:check && yarn type:build",
+    "type:check": "tsc",
+    "type:build": "node -r esbuild-register ./scripts/build",
+    "format": "prettier \"src/**/*.ts\" --write",
+    "format:check": "prettier \"src/**/*.ts\" --check",
+    "lint": "eslint src --ext .ts --fix",
+    "lint:check": "eslint src --ext .ts",
+    "test:check": "ava",
+    "coverage": "nyc ava && nyc report --reporter=html",
+    "spell:check": "cspell \"{README.md,.github/*.md,src/**/*.ts}\""
+  },
+  "devDependencies": {
+    "@types/node": "^16.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.28.1",
+    "@typescript-eslint/parser": "^4.28.1",
+    "ava": "^3.15.0",
+    "cspell": "^5.6.6",
+    "esbuild": "^0.12.14",
+    "esbuild-register": "^2.6.0",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.23.4",
+    "nyc": "^15.1.0",
+    "prettier": "^2.3.2",
+    "typescript": "^4.3.5"
+  },
+  "volta": {
+    "node": "16.4.1",
+    "yarn": "1.22.10"
+  }
+}

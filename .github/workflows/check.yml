@@ -1,0 +1,34 @@
+name: Check
+
+on: [push]
+
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.head_ref }}
+      cancel-in-progress: true
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: volta-cli/action@v1
+      - run: yarn --frozen-lockfile
+
+      - name: Type check
+        run: yarn type:check
+
+      - name: Format check
+        run: yarn format:check
+
+      - name: Lint check
+        run: yarn lint:check
+
+      - name: Spell check
+        run: yarn spell:check
+
+      - name: Test check
+        run: yarn test:check
