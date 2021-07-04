@@ -4,9 +4,9 @@ Yet another (opinionated) typescript library starter template.
 
 ## Opinions and limitations
 
-1- Relies as much as possible on each included library's defaults
-2- Only rely on GitHub Actions
-3- Do not include documentation generation
+1. Relies as much as possible on each included library's defaults
+2. Only rely on GitHub Actions
+3. Do not include documentation generation
 
 ## Features
 
