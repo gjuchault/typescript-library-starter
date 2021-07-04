@@ -1,4 +1,3 @@
-import fs from "fs/promises";
 import path from "path";
 import { build as esbuild } from "esbuild";
 
@@ -13,10 +12,6 @@ const baseConfig = {
 };
 
 async function main() {
-  await fs.rm(path.join(__dirname, "../build"), {
-    recursive: true,
-  });
-
   await esbuild({
     ...baseConfig,
     outdir: path.join(__dirname, "../build/cjs"),

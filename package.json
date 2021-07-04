@@ -17,12 +17,14 @@
   "repository": "gjuchault/typescript-library-starter",
   "main": "./build/cjs/index.js",
   "module": "./build/esm/index.js",
+  "types": "./build/index.d.ts",
   "license": "MIT",
   "engines": {
     "node": "> 14"
   },
   "scripts": {
-    "build": "yarn type:check && yarn type:build",
+    "build": "yarn clean && yarn type:check && yarn type:build",
+    "clean": "node -r esbuild-register ./scripts/clean",
     "type:check": "tsc",
     "type:build": "node -r esbuild-register ./scripts/build",
     "format": "prettier \"src/**/*.ts\" --write",
