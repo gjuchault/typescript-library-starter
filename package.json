@@ -34,6 +34,7 @@
     "test:check": "ava",
     "coverage": "nyc ava && nyc report --reporter=html",
     "spell:check": "cspell \"{README.md,.github/*.md,src/**/*.ts}\"",
+    "cz": "cz",
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
@@ -46,6 +47,8 @@
     "@typescript-eslint/eslint-plugin": "^4.28.1",
     "@typescript-eslint/parser": "^4.28.1",
     "ava": "^3.15.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
     "cspell": "^5.6.6",
     "esbuild": "^0.12.14",
     "esbuild-register": "^2.6.0",
