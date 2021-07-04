@@ -1,7 +1,7 @@
 {
   "name": "@gjuchault/typescript-library-starter",
   "version": "0.0.0-development",
-  "description": "Yet another typescript library starter template",
+  "description": "Yet another (opinionated) typescript library starter template",
   "keywords": [
     "typescript",
     "library",
@@ -26,16 +26,17 @@
     "access": "public"
   },
   "scripts": {
-    "build": "yarn clean && yarn type:check && yarn type:build",
+    "build": "yarn clean && yarn type:dts && yarn type:build",
     "clean": "node -r esbuild-register ./scripts/clean",
-    "type:check": "tsc",
+    "type:dts": "tsc",
+    "type:check": "tsc --noEmit",
     "type:build": "node -r esbuild-register ./scripts/build",
     "format": "prettier \"src/**/*.ts\" --write",
     "format:check": "prettier \"src/**/*.ts\" --check",
     "lint": "eslint src --ext .ts --fix",
     "lint:check": "eslint src --ext .ts",
     "test:check": "ava",
-    "coverage": "nyc ava && nyc report --reporter=html",
+    "test:coverage": "nyc ava && nyc report --reporter=html",
     "spell:check": "cspell \"{README.md,.github/*.md,src/**/*.ts}\"",
     "cz": "cz",
     "semantic-release": "semantic-release"
