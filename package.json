@@ -22,6 +22,9 @@
   "engines": {
     "node": "> 14"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "yarn clean && yarn type:check && yarn type:build",
     "clean": "node -r esbuild-register ./scripts/clean",
