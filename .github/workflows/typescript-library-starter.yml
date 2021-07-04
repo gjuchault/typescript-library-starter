@@ -6,7 +6,7 @@ env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
-  check:
+  typescript-library-starter:
     runs-on: ubuntu-latest
 
     concurrency:
