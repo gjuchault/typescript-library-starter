@@ -35,7 +35,7 @@
     "format:check": "prettier \"src/**/*.ts\" --check",
     "lint": "eslint src --ext .ts --fix",
     "lint:check": "eslint src --ext .ts",
-    "test:check": "ava",
+    "test": "ava",
     "test:coverage": "nyc ava && nyc report --reporter=html",
     "spell:check": "cspell \"{README.md,.github/*.md,src/**/*.ts}\"",
     "cz": "cz",

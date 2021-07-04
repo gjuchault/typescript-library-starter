@@ -30,8 +30,8 @@ jobs:
       - name: Spell check
         run: yarn spell:check
 
-      - name: Test check
-        run: yarn test:check
+      - name: Test
+        run: yarn test
 
       - name: Release
         env:

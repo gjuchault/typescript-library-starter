@@ -29,7 +29,7 @@ typescript-library-starter uses [ava](https://github.com/avajs/ava) and [esbuild
 
 Commands:
 
-- `test:check`: runs ava test runner
+- `test`: runs ava test runner
 - `test:coverage`: runs ava test runner and generates coverage reports
 
 **Format & lint**
