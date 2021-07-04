@@ -1,4 +1,4 @@
-name: Check
+name: Typescript Library Starter
 
 on: [push]
 
@@ -32,3 +32,9 @@ jobs:
 
       - name: Test check
         run: yarn test:check
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn semantic-release
