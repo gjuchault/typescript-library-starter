@@ -8,7 +8,18 @@ Yet another (opinionated) typescript library starter template.
 2. Only rely on GitHub Actions
 3. Do not include documentation generation
 
+## Getting started
+
+1. `git clone git@github.com:gjuchault/typescript-library-starter.git my-project`
+2. `cd my-project`
+3. `yarn` or `npm install`
+4. `yarn setup` or `npm run setup`
+
 ## Features
+
+### Node.js, npm and/or yarn version
+
+Typescript Library Starter relies on [volta](https://volta.sh/) to ensure node version to be consistent across developers. It's also used in the GitHub workflow file.
 
 ### Typescript
 
