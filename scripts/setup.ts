@@ -10,6 +10,7 @@ const exec = promisify(childProcess.exec);
 const rootPath = path.join(__dirname, "..");
 const yarnLockPath = path.join(rootPath, "yarn.lock");
 const releaseRcPath = path.join(rootPath, ".releaserc.json");
+const cspellPath = path.join(rootPath, ".cspell.json");
 const packageJsonPath = path.join(rootPath, "package.json");
 const setupPath = __filename;
 const workflowPath = path.join(
@@ -140,6 +141,11 @@ async function cleanup() {
   await logAsyncTask(
     "Removing dependencies",
     exec("yarn remove slugify prompts")
+  );
+
+  await logAsyncTask(
+    "Cleaning cspell",
+    replaceInFile(cspellPath, new Map([[/, "gjuchault"/, ""]]))
   );
 
   await logAsyncTask("Removing setup.ts script", fs.rm(setupPath));

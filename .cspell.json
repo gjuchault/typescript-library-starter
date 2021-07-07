@@ -1,7 +1,7 @@
 {
   "version": "0.1",
   "language": "en",
-  "words": ["esbuild", "rmrf"],
+  "words": ["esbuild", "rmrf", "gjuchault"],
   "flagWords": [],
   "ignorePaths": [
     "package.json",
