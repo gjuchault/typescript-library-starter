@@ -26,7 +26,7 @@
     "setup": "node -r esbuild-register ./scripts/setup",
     "build": "yarn clean && yarn type:dts && yarn type:build",
     "clean": "node -r esbuild-register ./scripts/clean",
-    "type:dts": "tsc",
+    "type:dts": "tsc --emitDeclarationOnly",
     "type:check": "tsc --noEmit",
     "type:build": "node -r esbuild-register ./scripts/build",
     "format": "prettier \"src/**/*.ts\" --write",
