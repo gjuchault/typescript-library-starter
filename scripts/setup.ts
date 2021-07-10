@@ -31,32 +31,32 @@ async function main() {
 
   const { name, githubUserName, userMail, packageManager }: Input =
     await prompts([
-    {
-      type: "text",
-      name: "name",
-      message: "What is your project name?",
-      initial: initialProjectName,
-    },
-    {
-      type: "text",
-      name: "githubUserName",
-      message: "What is your github username (package.json)?",
-    },
-    {
+      {
+        type: "text",
+        name: "name",
+        message: "What is your project name?",
+        initial: initialProjectName,
+      },
+      {
+        type: "text",
+        name: "githubUserName",
+        message: "What is your github username (package.json)?",
+      },
+      {
         type: "text",
         name: "userMail",
         message: "What is your mail (CODE_OF_CONDUCT.md)?",
       },
       {
-      type: "select",
-      name: "packageManager",
-      message: "Pick a package manager",
-      choices: [
-        { title: "Yarn v1", value: "yarn" },
-        { title: "npm", value: "npm" },
-      ],
-    },
-  ]);
+        type: "select",
+        name: "packageManager",
+        message: "Pick a package manager",
+        choices: [
+          { title: "Yarn v1", value: "yarn" },
+          { title: "npm", value: "npm" },
+        ],
+      },
+    ]);
 
   if (!packageManager || !name || !githubUserName) {
     console.log("User input missing. Exiting");
@@ -110,8 +110,8 @@ async function applyPackageName({
   await logAsyncTask(
     "Renaming GitHub workflow file",
     fs.rename(
-      path.join(rootPath, ".github/workflows/typescript-library-starter.yml"),
-      `${packageName}.yml`
+      workflowPath,
+      path.join(rootPath, `.github/workflows/${packageName}.yml`)
     )
   );
 
