@@ -1,5 +1,9 @@
 # Typescript Library Starter
 
+![NPM](https://img.shields.io/npm/l/@gjuchault/typescript-library-starter)
+![NPM](https://img.shields.io/npm/v/@gjuchault/typescript-library-starter)
+![GitHub Workflow Status](https://github.com/gjuchault/typescript-library-starter/actions/workflows/typescript-library-starter.yml/badge.svg?branch=main)
+
 Yet another (opinionated) typescript library starter template.
 
 ## Opinions and limitations
