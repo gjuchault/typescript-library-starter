@@ -35,7 +35,7 @@
     "lint:check": "eslint src --ext .ts",
     "test": "ava",
     "test:coverage": "nyc ava && nyc report --reporter=html",
-    "spell:check": "cspell \"{README.md,.github/*.md,src/**/*.ts}\"",
+    "spell:check": "cspell \"{README.md,CODE_OF_CONDUCT.md,CONTRIBUTING.md,.github/*.md,src/**/*.ts}\"",
     "cz": "cz",
     "semantic-release": "semantic-release"
   },
