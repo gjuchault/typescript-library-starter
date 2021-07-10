@@ -17,17 +17,20 @@ const workflowPath = path.join(
   rootPath,
   ".github/workflows/typescript-library-starter.yml"
 );
+const codeOfConductPath = path.join(rootPath, "CODE_OF_CONDUCT.md");
 
 interface Input {
   name: string;
   githubUserName: string;
+  userMail: string;
   packageManager: "yarn" | "npm";
 }
 
 async function main() {
   const initialProjectName = path.basename(rootPath);
 
-  const { name, githubUserName, packageManager }: Input = await prompts([
+  const { name, githubUserName, userMail, packageManager }: Input =
+    await prompts([
     {
       type: "text",
       name: "name",
@@ -40,6 +43,11 @@ async function main() {
       message: "What is your github username (package.json)?",
     },
     {
+        type: "text",
+        name: "userMail",
+        message: "What is your mail (CODE_OF_CONDUCT.md)?",
+      },
+      {
       type: "select",
       name: "packageManager",
       message: "Pick a package manager",
@@ -55,7 +63,7 @@ async function main() {
     process.exit(1);
   }
 
-  await applyPackageName({ packageName: name, githubUserName });
+  await applyPackageName({ packageName: name, githubUserName, userMail });
 
   if (packageManager === "npm") {
     await switchToNpm();
@@ -80,9 +88,11 @@ async function switchToNpm() {
 async function applyPackageName({
   packageName,
   githubUserName,
+  userMail,
 }: {
   packageName: string;
   githubUserName: string;
+  userMail: string;
 }) {
   const packageSlug = slugify(packageName);
 
@@ -115,6 +125,14 @@ async function applyPackageName({
           `${githubUserName}/${packageName}`,
         ],
       ])
+    )
+  );
+
+  await logAsyncTask(
+    "Editing CODE_OF_CONDUCT.md",
+    replaceInFile(
+      codeOfConductPath,
+      new Map([["gabriel.juchault@gmail.com", userMail]])
     )
   );
 
