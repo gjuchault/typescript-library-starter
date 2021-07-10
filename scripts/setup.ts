@@ -20,7 +20,7 @@ const workflowPath = path.join(
 const codeOfConductPath = path.join(rootPath, "CODE_OF_CONDUCT.md");
 
 interface Input {
-  name: string;
+  packageName: string;
   githubUserName: string;
   userMail: string;
   packageManager: "yarn" | "npm";
@@ -29,11 +29,11 @@ interface Input {
 async function main() {
   const initialProjectName = path.basename(rootPath);
 
-  const { name, githubUserName, userMail, packageManager }: Input =
+  const { packageName, githubUserName, userMail, packageManager }: Input =
     await prompts([
       {
         type: "text",
-        name: "name",
+        name: "packageName",
         message: "What is your project name?",
         initial: initialProjectName,
       },
@@ -58,18 +58,18 @@ async function main() {
       },
     ]);
 
-  if (!packageManager || !name || !githubUserName) {
+  if (!packageManager || !packageName || !githubUserName) {
     console.log("User input missing. Exiting");
     process.exit(1);
   }
 
-  await applyPackageName({ packageName: name, githubUserName, userMail });
+  await applyPackageName({ packageName, githubUserName, userMail });
 
   if (packageManager === "npm") {
     await switchToNpm();
   }
 
-  await cleanup();
+  await cleanup({ packageName });
 
   console.log("Ready to go 🚀");
 }
@@ -155,7 +155,7 @@ async function applyPackageName({
   );
 }
 
-async function cleanup() {
+async function cleanup({ packageName }: { packageName: string }) {
   await logAsyncTask(
     "Removing dependencies",
     exec("yarn remove slugify prompts")
@@ -163,7 +163,7 @@ async function cleanup() {
 
   await logAsyncTask(
     "Cleaning cspell",
-    replaceInFile(cspellPath, new Map([[/, "gjuchault"/, ""]]))
+    replaceInFile(cspellPath, new Map([["gjuchault", packageName]]))
   );
 
   await logAsyncTask("Removing setup.ts script", fs.rm(setupPath));
