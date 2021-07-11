@@ -1,4 +1,4 @@
 export default {
   extensions: ["ts"],
-  nodeArguments: ["-r", "esbuild-register"],
+  nodeArguments: ["-r", "./esbuild-hook"],
 };
