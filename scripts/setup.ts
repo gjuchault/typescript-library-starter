@@ -9,6 +9,7 @@ const exec = promisify(childProcess.exec);
 
 const rootPath = path.join(__dirname, "..");
 const yarnLockPath = path.join(rootPath, "yarn.lock");
+const yarnRcPath = path.join(rootPath, ".yarnrc.yml");
 const releaseRcPath = path.join(rootPath, ".releaserc.json");
 const cspellPath = path.join(rootPath, ".cspell.json");
 const packageJsonPath = path.join(rootPath, "package.json");
@@ -23,40 +24,47 @@ interface Input {
   packageName: string;
   githubUserName: string;
   userMail: string;
-  packageManager: "yarn" | "npm";
+  packageManager: "yarn" | "yarnBerry" | "npm";
 }
 
 async function main() {
   const initialProjectName = path.basename(rootPath);
 
-  const { packageName, githubUserName, userMail, packageManager }: Input =
-    await prompts([
-      {
-        type: "text",
-        name: "packageName",
-        message: "What is your project name?",
-        initial: initialProjectName,
-      },
-      {
-        type: "text",
-        name: "githubUserName",
-        message: "What is your github username (package.json)?",
-      },
-      {
-        type: "text",
-        name: "userMail",
-        message: "What is your mail (CODE_OF_CONDUCT.md)?",
-      },
-      {
-        type: "select",
-        name: "packageManager",
-        message: "Pick a package manager",
-        choices: [
-          { title: "Yarn v1", value: "yarn" },
-          { title: "npm", value: "npm" },
-        ],
-      },
-    ]);
+  const input: Input = await prompts([
+    {
+      type: "text",
+      name: "packageName",
+      message: "What is your project name?",
+      initial: initialProjectName,
+    },
+    {
+      type: "text",
+      name: "githubUserName",
+      message: "What is your github username (package.json)?",
+    },
+    {
+      type: "text",
+      name: "userMail",
+      message: "What is your mail (CODE_OF_CONDUCT.md)?",
+    },
+    {
+      type: "select",
+      name: "packageManager",
+      message: "Pick a package manager",
+      choices: [
+        { title: "Yarn v1", value: "yarn" },
+        { title: "Yarn v3 (berry)", value: "yarnBerry" },
+        { title: "npm", value: "npm" },
+      ],
+    },
+  ]);
+
+  const packageManager = input.packageManager;
+  // \u0015 may be inserted by clearing the pre-filled value by doing
+  // cmd+backspace
+  const packageName = input.packageName?.trim().replace("\u0015", "");
+  const githubUserName = input.githubUserName?.trim();
+  const userMail = input.userMail?.trim();
 
   if (!packageManager || !packageName || !githubUserName) {
     console.log("User input missing. Exiting");
@@ -65,11 +73,21 @@ async function main() {
 
   await applyPackageName({ packageName, githubUserName, userMail });
 
-  if (packageManager === "npm") {
-    await switchToNpm();
-  }
-
   await cleanup({ packageName });
+
+  await commitAll("chore: typescript-library-startup");
+
+  switch (packageManager) {
+    case "npm":
+      await switchToNpm();
+      break;
+    case "yarnBerry":
+      await switchToYarnBerry();
+      break;
+    case "yarn":
+    default:
+      break;
+  }
 
   console.log("Ready to go 🚀");
 }
@@ -83,6 +101,26 @@ async function switchToNpm() {
   );
 
   await logAsyncTask("Removing yarn.lock", fs.rm(yarnLockPath));
+
+  await commitAll("chore(npm): migrating to npm");
+}
+
+async function switchToYarnBerry() {
+  await logAsyncTask(
+    "Switching to yarn berry",
+    exec("yarn set version berry && yarn set version latest", { cwd: rootPath })
+  );
+
+  await logAsyncTask(
+    "Switch to node_modules yarn",
+    fs.appendFile(yarnRcPath, `nodeLinker: node-modules\n`)
+  );
+
+  await commitAll("chore(yarn): migrating to yarn berry");
+
+  await logAsyncTask("Migrating lockfile", exec("yarn"));
+
+  await commitAll("chore(yarnBerry): migrating lockfile");
 }
 
 async function applyPackageName({
@@ -181,6 +219,14 @@ async function replaceInFile(
   }
 
   await fs.writeFile(filePath, replacedContent);
+}
+
+async function commitAll(message: string) {
+  await exec("git add .");
+  await logAsyncTask(
+    `Committing changes: ${message}`,
+    exec(`git commit -m "${message}"`)
+  );
 }
 
 async function logAsyncTask<TResolve>(
