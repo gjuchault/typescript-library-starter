@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     concurrency:
-      group: ${{ github.workflow }}-${{ github.head_ref }}
+      group: ${{ github.ref }}
       cancel-in-progress: true
 
     steps:
