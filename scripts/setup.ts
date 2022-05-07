@@ -63,6 +63,8 @@ async function main() {
 
   await commitAll("chore: typescript-library-startup");
 
+  await removeOrigin();
+
   console.log("Ready to go 🚀");
 }
 
@@ -84,6 +86,19 @@ async function applyPackageName({
       new Map([
         ["Typescript Library Starter", packageName],
         ["typescript-library-starter", packageSlug],
+      ])
+    )
+  );
+
+  await logAsyncTask(
+    "Changing GitHub Discussions file",
+    replaceInFile(
+      workflowPath,
+      new Map([
+        [
+          "gjuchault/typescript-library-starter",
+          `${githubUserName}/${packageName}`,
+        ],
       ])
     )
   );
@@ -139,7 +154,7 @@ async function applyPackageName({
 async function cleanup({ packageName }: { packageName: string }) {
   await logAsyncTask(
     "Removing dependencies",
-    exec("yarn remove slugify prompts")
+    exec("npm uninstall slugify prompts")
   );
 
   await logAsyncTask(
@@ -170,6 +185,10 @@ async function commitAll(message: string) {
     `Committing changes: ${message}`,
     exec(`git commit -m "${message}"`)
   );
+}
+
+async function removeOrigin() {
+  await logAsyncTask(`Removing git origin`, exec(`git remote rm origin`));
 }
 
 async function logAsyncTask<TResolve>(
