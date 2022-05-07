@@ -5,7 +5,6 @@ const baseConfig = {
   platform: "node" as const,
   target: "esnext" as const,
   format: "cjs" as const,
-  bundle: true,
   nodePaths: [path.join(__dirname, "../src")],
   sourcemap: true,
   external: [],
