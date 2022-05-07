@@ -16,25 +16,25 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: volta-cli/action@v1
-      - run: yarn --frozen-lockfile
+      - run: npm ci
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: Format check
-        run: yarn format:check
+        run: npm run format:check
 
       - name: Lint check
-        run: yarn lint:check
+        run: npm run lint:check
 
       - name: Spell check
-        run: yarn spell:check
+        run: npm run spell:check
 
       - name: Test
-        run: yarn test
+        run: npm run test
 
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn semantic-release
+        run: npm run semantic-release
