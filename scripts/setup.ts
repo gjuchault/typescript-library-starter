@@ -8,8 +8,6 @@ import prompts from "prompts";
 const exec = promisify(childProcess.exec);
 
 const rootPath = path.join(__dirname, "..");
-const yarnLockPath = path.join(rootPath, "yarn.lock");
-const yarnRcPath = path.join(rootPath, ".yarnrc.yml");
 const releaseRcPath = path.join(rootPath, ".releaserc.json");
 const cspellPath = path.join(rootPath, ".cspell.json");
 const packageJsonPath = path.join(rootPath, "package.json");
@@ -24,7 +22,6 @@ interface Input {
   packageName: string;
   githubUserName: string;
   userMail: string;
-  packageManager: "yarn" | "yarnBerry" | "npm";
 }
 
 async function main() {
@@ -47,26 +44,15 @@ async function main() {
       name: "userMail",
       message: "What is your mail (CODE_OF_CONDUCT.md)?",
     },
-    {
-      type: "select",
-      name: "packageManager",
-      message: "Pick a package manager",
-      choices: [
-        { title: "Yarn v1", value: "yarn" },
-        { title: "Yarn v3 (berry)", value: "yarnBerry" },
-        { title: "npm", value: "npm" },
-      ],
-    },
   ]);
 
-  const packageManager = input.packageManager;
   // \u0015 may be inserted by clearing the pre-filled value by doing
   // cmd+backspace
   const packageName = input.packageName?.trim().replace("\u0015", "");
   const githubUserName = input.githubUserName?.trim();
   const userMail = input.userMail?.trim();
 
-  if (!packageManager || !packageName || !githubUserName) {
+  if (!packageName || !githubUserName) {
     console.log("User input missing. Exiting");
     process.exit(1);
   }
@@ -77,50 +63,7 @@ async function main() {
 
   await commitAll("chore: typescript-library-startup");
 
-  switch (packageManager) {
-    case "npm":
-      await switchToNpm();
-      break;
-    case "yarnBerry":
-      await switchToYarnBerry();
-      break;
-    case "yarn":
-    default:
-      break;
-  }
-
   console.log("Ready to go 🚀");
-}
-
-async function switchToNpm() {
-  await logAsyncTask(
-    "Running `npm install`",
-    exec("npm install", {
-      cwd: rootPath,
-    })
-  );
-
-  await logAsyncTask("Removing yarn.lock", fs.rm(yarnLockPath));
-
-  await commitAll("chore(npm): migrating to npm");
-}
-
-async function switchToYarnBerry() {
-  await logAsyncTask(
-    "Switching to yarn berry",
-    exec("yarn set version berry && yarn set version latest", { cwd: rootPath })
-  );
-
-  await logAsyncTask(
-    "Switch to node_modules yarn",
-    fs.appendFile(yarnRcPath, `nodeLinker: node-modules\n`)
-  );
-
-  await commitAll("chore(yarn): migrating to yarn berry");
-
-  await logAsyncTask("Migrating lockfile", exec("yarn"));
-
-  await commitAll("chore(yarnBerry): migrating lockfile");
 }
 
 async function applyPackageName({
