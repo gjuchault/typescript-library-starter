@@ -11,10 +11,16 @@ const rootPath = path.join(__dirname, "..");
 const releaseRcPath = path.join(rootPath, ".releaserc.json");
 const cspellPath = path.join(rootPath, ".cspell.json");
 const packageJsonPath = path.join(rootPath, "package.json");
+const contributingPath = path.join(rootPath, "CONTRIBUTING.md");
 const setupPath = __filename;
+const testSetupPath = path.join(rootPath, "scripts/testSetup.ts");
 const workflowPath = path.join(
   rootPath,
   ".github/workflows/typescript-library-starter.yml"
+);
+const issueConfigPath = path.join(
+  rootPath,
+  ".github/ISSUE_TEMPLATE/config.yml"
 );
 const codeOfConductPath = path.join(rootPath, "CODE_OF_CONDUCT.md");
 
@@ -57,6 +63,18 @@ async function main() {
     process.exit(1);
   }
 
+  return run({ packageName, githubUserName, userMail });
+}
+
+export async function run({
+  packageName,
+  githubUserName,
+  userMail,
+}: {
+  packageName: string;
+  githubUserName: string;
+  userMail: string;
+}) {
   await applyPackageName({ packageName, githubUserName, userMail });
 
   await cleanup({ packageName });
@@ -84,8 +102,9 @@ async function applyPackageName({
     replaceInFile(
       workflowPath,
       new Map([
-        ["Typescript Library Starter", packageName],
-        ["typescript-library-starter", packageSlug],
+        [/Typescript Library Starter/, packageName],
+        [/typescript-library-starter/, packageSlug],
+        [/\s+- name: Setup test\s+run:[\w :]+/i, ""],
       ])
     )
   );
@@ -93,10 +112,23 @@ async function applyPackageName({
   await logAsyncTask(
     "Changing GitHub Discussions file",
     replaceInFile(
-      workflowPath,
+      issueConfigPath,
       new Map([
         [
           "gjuchault/typescript-library-starter",
+          `${githubUserName}/${packageName}`,
+        ],
+      ])
+    )
+  );
+
+  await logAsyncTask(
+    "Changing CONTRIBUTING.md file",
+    replaceInFile(
+      contributingPath,
+      new Map([
+        [
+          /gjuchault\/typescript-library-starter/g,
           `${githubUserName}/${packageName}`,
         ],
       ])
@@ -163,6 +195,7 @@ async function cleanup({ packageName }: { packageName: string }) {
   );
 
   await logAsyncTask("Removing setup.ts script", fs.rm(setupPath));
+  await logAsyncTask("Removing testSetup.ts script", fs.rm(testSetupPath));
 }
 
 async function replaceInFile(

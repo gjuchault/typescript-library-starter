@@ -35,6 +35,7 @@
     "lint:check": "eslint src --ext .ts",
     "test": "ava",
     "test:coverage": "nyc ava && nyc report --reporter=html",
+    "test:setup": "node -r ./esbuild-hook ./scripts/testSetup",
     "spell:check": "cspell \"{README.md,CODE_OF_CONDUCT.md,CONTRIBUTING.md,.github/*.md,src/**/*.ts}\"",
     "cz": "cz",
     "semantic-release": "semantic-release"
