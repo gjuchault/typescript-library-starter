@@ -19,6 +19,8 @@ Yet another (opinionated) typescript library starter template.
 3. `npm install`
 4. `npm run setup`
 
+Or click on `Use this template` button on GitHub!
+
 ## Features
 
 ### Node.js, npm version
