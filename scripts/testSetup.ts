@@ -5,8 +5,19 @@ import { run } from "./setup";
 const exec = promisify(childProcess.exec);
 
 async function main() {
-  await exec(`git config --global user.email actions@github.com`);
-  await exec(`git config --global user.name GithubActions`);
+  try {
+    const { stdout: gitEmail } = await exec(
+      `git config --global --get user.email`
+    );
+
+    if (!gitEmail.trim().length) {
+      await exec(`git config --global user.email actions@github.com`);
+      await exec(`git config --global user.name GithubActions`);
+    }
+  } catch (err) {
+    await exec(`git config --global user.email actions@github.com`);
+    await exec(`git config --global user.name GithubActions`);
+  }
 
   await run({
     githubUserName: "ghUserName",
