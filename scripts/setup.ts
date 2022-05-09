@@ -221,7 +221,10 @@ async function commitAll(message: string) {
 }
 
 async function removeOrigin() {
-  await logAsyncTask(`Removing git origin`, exec(`git remote rm origin`));
+  const { stdout: origin } = await exec(`git remote get-url origin`);
+  if (origin.includes("gjuchault/typescript-library-starter")) {
+    await logAsyncTask(`Removing git origin`, exec(`git remote rm origin`));
+  }
 }
 
 async function logAsyncTask<TResolve>(
