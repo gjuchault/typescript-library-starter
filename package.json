@@ -24,11 +24,11 @@
   },
   "scripts": {
     "setup": "node -r ./esbuild-hook ./scripts/setup",
-    "build": "yarn clean && yarn type:dts && yarn type:build",
+    "build": "npm run clean && npm run type:dts && npm run type:build",
+    "build:main": "node -r ./esbuild-hook ./scripts/build",
     "clean": "node -r ./esbuild-hook ./scripts/clean",
     "type:dts": "tsc --emitDeclarationOnly",
     "type:check": "tsc --noEmit",
-    "type:build": "node -r ./esbuild-hook ./scripts/build",
     "format": "prettier \"src/**/*.ts\" --write",
     "format:check": "prettier \"src/**/*.ts\" --check",
     "lint": "eslint src --ext .ts --fix",
