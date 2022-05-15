@@ -31,5 +31,8 @@
         "project": "tsconfig.json"
       }
     }
+  },
+  "rules": {
+    "import/order": ["error"]
   }
 }
