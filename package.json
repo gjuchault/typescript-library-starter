@@ -24,7 +24,7 @@
   },
   "scripts": {
     "setup": "node -r ./esbuild-hook ./scripts/setup",
-    "build": "npm run clean && npm run type:dts && npm run type:build",
+    "build": "npm run clean && npm run type:dts && npm run build:main",
     "build:main": "node -r ./esbuild-hook ./scripts/build",
     "clean": "node -r ./esbuild-hook ./scripts/clean",
     "type:dts": "tsc --emitDeclarationOnly",
