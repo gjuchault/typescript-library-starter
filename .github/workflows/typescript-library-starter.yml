@@ -18,6 +18,9 @@ jobs:
       - uses: volta-cli/action@v1
       - run: npm ci
 
+      - name: Dependencies audit
+        run: npm audit
+
       - name: Build
         run: npm run build
 
