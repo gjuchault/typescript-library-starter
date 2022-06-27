@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { foo, bar } from "../index";
 
 describe("foo()", () => {
-  describe("given two positive integers parameters", () => {
+  describe("given two positive integers", () => {
     const first = 1;
     const second = 2;
 
@@ -15,7 +15,7 @@ describe("foo()", () => {
 });
 
 describe("bar()", () => {
-  describe("given two positive integers parameters", () => {
+  describe("given two positive integers", () => {
     const first = 2;
     const second = 1;
 
