@@ -47,12 +47,13 @@ Commands:
 
 ### Tests
 
-typescript-library-starter uses [ava](https://github.com/avajs/ava) and [esbuild-register](https://github.com/egoist/esbuild-register) so that there is no need to compile before the tests start running. The coverage is done through [nyc](https://github.com/istanbuljs/nyc).
+typescript-library-starter uses [vitest](https://vitest.dev/). The coverage is done through vitest, using [c8](https://github.com/bcoe/c8).
 
 Commands:
 
-- `test`: runs ava test runner
-- `test:coverage`: runs ava test runner and generates coverage reports
+- `test`: runs vitest test runner
+- `test:watch`: runs vitest test runner in watch mode
+- `test:coverage`: runs vitest test runner and generates coverage reports
 
 ### Format & lint
 
