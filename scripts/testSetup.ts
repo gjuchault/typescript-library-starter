@@ -56,7 +56,7 @@ async function testNoGrep(pattern: string) {
       `grep -r "${pattern}" --exclude-dir=node_modules --exclude-dir=.git --exclude=README.md .`
     );
   } catch (err) {
-    if (err.stderr === "") {
+    if ((err as unknown as Record<string, string>).stderr === "") {
       return;
     }
 

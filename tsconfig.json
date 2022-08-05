@@ -6,7 +6,7 @@
     "module": "commonjs",
     "target": "es2020",
 
-    "rootDir": "./src",
+    "rootDir": "./",
     "outDir": "build",
 
     "strict": true,
@@ -14,6 +14,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "declaration": true
+    "declaration": true,
+    "resolveJsonModule": true
   }
 }

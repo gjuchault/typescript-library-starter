@@ -13,7 +13,10 @@
   "extends": [
     "eslint:recommended",
     "plugin:eslint-comments/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@typescript-eslint/strict",
     "plugin:import/recommended",
     "plugin:import/typescript",
     "prettier"
@@ -34,6 +37,9 @@
           "caseInsensitive": true
         }
       }
-    ]
+    ],
+    "import/no-extraneous-dependencies": "error",
+    "import/no-mutable-exports": "error",
+    "import/no-unused-modules": "error"
   }
 }
