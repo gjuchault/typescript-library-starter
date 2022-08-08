@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-
 const Module = require("module");
 const { transformSync } = require("esbuild");
 const sourceMapSupport = require("source-map-support");
