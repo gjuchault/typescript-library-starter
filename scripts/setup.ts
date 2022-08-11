@@ -81,8 +81,6 @@ export async function run({
 
   await commitAll("chore: typescript-library-startup");
 
-  await removeOrigin();
-
   console.log("Ready to go 🚀");
 }
 
@@ -218,13 +216,6 @@ async function commitAll(message: string) {
     `Committing changes: ${message}`,
     exec(`git commit -m "${message}"`)
   );
-}
-
-async function removeOrigin() {
-  const { stdout: origin } = await exec(`git remote get-url origin`);
-  if (origin.includes("gjuchault/typescript-library-starter")) {
-    await logAsyncTask(`Removing git origin`, exec(`git remote rm origin`));
-  }
 }
 
 async function logAsyncTask<TResolve>(

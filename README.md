@@ -14,7 +14,7 @@ Yet another (opinionated) typescript library starter template.
 
 ## Getting started
 
-1. `git clone git@github.com:gjuchault/typescript-library-starter.git my-project`
+1. `npx degit gjuchault/typescript-library-starter my-project`
 2. `cd my-project`
 3. `npm install`
 4. `npm run setup`

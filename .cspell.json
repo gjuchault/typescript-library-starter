@@ -1,7 +1,14 @@
 {
   "version": "0.1",
   "language": "en",
-  "words": ["esbuild", "rmrf", "gjuchault", "socio", "octocat"],
+  "words": [
+    "degit",
+    "esbuild",
+    "gjuchault",
+    "octocat",
+    "rmrf",
+    "socio"
+  ],
   "flagWords": [],
   "ignorePaths": [
     "package.json",
