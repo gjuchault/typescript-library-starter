@@ -43,10 +43,6 @@ async function test() {
 async function restore() {
   await exec(`git reset HEAD~ && git checkout . && git clean -df`);
 
-  await exec(
-    `git remote add origin git@github.com:gjuchault/typescript-library-starter.git`
-  );
-
   await exec(`npm install`);
 }
 
