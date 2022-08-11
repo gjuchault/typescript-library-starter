@@ -14,12 +14,11 @@ Yet another (opinionated) typescript library starter template.
 
 ## Getting started
 
-1. `npx degit gjuchault/typescript-library-starter my-project`
+1. `npx degit gjuchault/typescript-library-starter my-project` or click on `Use this template` button on GitHub!
 2. `cd my-project`
 3. `npm install`
-4. `npm run setup`
-
-Or click on `Use this template` button on GitHub!
+4. `git init` (if you used degit)
+5. `npm run setup`
 
 To enable deployment, you will need to:
 
