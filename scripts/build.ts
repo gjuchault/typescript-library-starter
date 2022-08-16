@@ -1,13 +1,14 @@
 import path from "path";
-import { build as esbuild } from "esbuild";
+import { build as esbuild, BuildOptions } from "esbuild";
 
-const baseConfig = {
-  platform: "node" as const,
-  target: "esnext" as const,
-  format: "cjs" as const,
+const baseConfig: BuildOptions = {
+  platform: "node",
+  target: "esnext",
+  format: "cjs",
   nodePaths: [path.join(__dirname, "../src")],
   sourcemap: true,
   external: [],
+  bundle: true,
 };
 
 async function main() {
