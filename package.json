@@ -62,7 +62,7 @@
     "cspell": "^6.18.0",
     "esbuild": "^0.15.18",
     "eslint": "^8.30.0",
-    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.26.0",
