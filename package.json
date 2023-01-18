@@ -59,7 +59,7 @@
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.48.2",
     "c8": "^7.12.0",
-    "cspell": "^6.18.1",
+    "cspell": "^6.19.2",
     "esbuild": "^0.16.17",
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.6.0",
