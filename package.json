@@ -67,7 +67,7 @@
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.27.5",
     "nyc": "^15.1.0",
-    "prettier": "^2.8.3",
+    "prettier": "^2.8.4",
     "prompts": "^2.4.2",
     "semantic-release": "^20.1.1",
     "slugify": "^1.6.5",
