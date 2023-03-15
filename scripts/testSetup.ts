@@ -5,7 +5,7 @@ import { run } from "./setup";
 
 const exec = promisify(childProcess.exec);
 
-async function main() {
+async function testSetup() {
   try {
     const { stdout: gitEmail } = await exec(
       `git config --global --get user.email`
@@ -63,6 +63,6 @@ async function testNoGrep(pattern: string) {
 
 if (import.meta.url.startsWith("file:")) {
   if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
-    await main();
+    await testSetup();
   }
 }

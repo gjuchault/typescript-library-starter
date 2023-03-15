@@ -14,7 +14,7 @@ const baseConfig: BuildOptions = {
   bundle: true,
 };
 
-async function main() {
+async function build() {
   await esbuild({
     ...baseConfig,
     outdir: path.join(__dirname, "../build"),
@@ -24,6 +24,6 @@ async function main() {
 
 if (import.meta.url.startsWith("file:")) {
   if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
-    await main();
+    await build();
   }
 }
