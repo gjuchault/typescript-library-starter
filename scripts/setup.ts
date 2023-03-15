@@ -16,7 +16,7 @@ const cspellPath = path.join(rootPath, ".cspell.json");
 const packageJsonPath = path.join(rootPath, "package.json");
 const contributingPath = path.join(rootPath, "CONTRIBUTING.md");
 const setupPath = __filename;
-const testSetupPath = path.join(rootPath, "scripts/testSetup.ts");
+const testSetupPath = path.join(rootPath, "scripts/test-setup.ts");
 const workflowPath = path.join(
   rootPath,
   ".github/workflows/typescript-library-starter.yml"
@@ -196,7 +196,7 @@ async function cleanup({ packageName }: { packageName: string }) {
   );
 
   await logAsyncTask("Removing setup.ts script", fs.rm(setupPath));
-  await logAsyncTask("Removing testSetup.ts script", fs.rm(testSetupPath));
+  await logAsyncTask("Removing test-setup.ts script", fs.rm(testSetupPath));
 }
 
 async function replaceInFile(

@@ -41,7 +41,7 @@
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",
-    "test:setup": "tsx ./scripts/testSetup.ts",
+    "test:setup": "tsx ./scripts/test-setup.ts",
     "spell:check": "cspell \"{README.md,CODE_OF_CONDUCT.md,CONTRIBUTING.md,.github/*.md,src/**/*.ts}\"",
     "cz": "cz",
     "semantic-release": "semantic-release"
