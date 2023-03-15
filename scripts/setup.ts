@@ -234,6 +234,4 @@ async function logAsyncTask<TResolve>(
   return output;
 }
 
-if (require.main === module) {
-  main();
-}
+await main();
