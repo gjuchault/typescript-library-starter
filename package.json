@@ -28,10 +28,10 @@
     "access": "public"
   },
   "scripts": {
-    "setup": "node -r ./esbuild-hook ./scripts/setup",
+    "setup": "tsx ./scripts/setup",
     "build": "npm run clean && npm run type:dts && npm run build:main",
-    "build:main": "node -r ./esbuild-hook ./scripts/build",
-    "clean": "node -r ./esbuild-hook ./scripts/clean",
+    "build:main": "tsx ./scripts/build",
+    "clean": "tsx ./scripts/clean",
     "type:dts": "tsc --emitDeclarationOnly",
     "type:check": "tsc --noEmit",
     "format": "prettier \"src/**/*.ts\" --write",
@@ -41,7 +41,7 @@
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",
-    "test:setup": "node -r ./esbuild-hook ./scripts/testSetup",
+    "test:setup": "tsx ./scripts/testSetup",
     "spell:check": "cspell \"{README.md,CODE_OF_CONDUCT.md,CONTRIBUTING.md,.github/*.md,src/**/*.ts}\"",
     "cz": "cz",
     "semantic-release": "semantic-release"
@@ -72,6 +72,7 @@
     "semantic-release": "^20.1.1",
     "slugify": "^1.6.5",
     "source-map-support": "^0.5.21",
+    "tsx": "^3.12.5",
     "typescript": "^4.9.5",
     "vitest": "^0.29.2"
   },
