@@ -1,10 +1,10 @@
 {
   "include": ["./src/**/*.ts"],
-  "exclude": ["./src/**/__tests__"],
   "compilerOptions": {
-    "lib": ["es2020"],
-    "module": "commonjs",
-    "target": "es2020",
+    "lib": ["es2022"],
+    "module": "esnext",
+    "target": "es2022",
+    "moduleResolution": "nodenext",
 
     "rootDir": "./",
     "outDir": "build",

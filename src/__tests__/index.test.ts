@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { foobar } from "../index";
+import { foobar } from "../index.js";
 
 describe("foobar()", () => {
   describe("given two positive integers", () => {

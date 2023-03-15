@@ -1,10 +1,13 @@
-import path from "path";
+import path from "node:path";
+import url from "node:url";
 import { build as esbuild, BuildOptions } from "esbuild";
+
+const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
 const baseConfig: BuildOptions = {
   platform: "node",
-  target: "esnext",
-  format: "cjs",
+  target: "node18",
+  format: "esm",
   nodePaths: [path.join(__dirname, "../src")],
   sourcemap: true,
   external: [],
@@ -14,18 +17,13 @@ const baseConfig: BuildOptions = {
 async function main() {
   await esbuild({
     ...baseConfig,
-    outdir: path.join(__dirname, "../build/cjs"),
-    entryPoints: [path.join(__dirname, "../src/index.ts")],
-  });
-
-  await esbuild({
-    ...baseConfig,
-    format: "esm",
-    outdir: path.join(__dirname, "../build/esm"),
+    outdir: path.join(__dirname, "../build"),
     entryPoints: [path.join(__dirname, "../src/index.ts")],
   });
 }
 
-if (require.main === module) {
-  main();
+if (import.meta.url.startsWith("file:")) {
+  if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
+    await main();
+  }
 }
