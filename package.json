@@ -28,10 +28,10 @@
     "access": "public"
   },
   "scripts": {
-    "setup": "tsx ./scripts/setup",
+    "setup": "tsx ./scripts/setup.ts",
     "build": "npm run clean && npm run type:dts && npm run build:main",
-    "build:main": "tsx ./scripts/build",
-    "clean": "tsx ./scripts/clean",
+    "build:main": "tsx ./scripts/build.ts",
+    "clean": "tsx ./scripts/clean.ts",
     "type:dts": "tsc --emitDeclarationOnly --project tsconfig.build.json",
     "type:check": "tsc --noEmit",
     "format": "prettier \"src/**/*.ts\" --write",
@@ -41,7 +41,7 @@
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",
-    "test:setup": "tsx ./scripts/testSetup",
+    "test:setup": "tsx ./scripts/testSetup.ts",
     "spell:check": "cspell \"{README.md,CODE_OF_CONDUCT.md,CONTRIBUTING.md,.github/*.md,src/**/*.ts}\"",
     "cz": "cz",
     "semantic-release": "semantic-release"
