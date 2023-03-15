@@ -1,11 +1,13 @@
-import path from "path";
+import path from "node:path";
+import fs from "node:fs/promises";
+import childProcess from "node:child_process";
+import { promisify } from "node:util";
+import url from "node:url";
 import slugify from "slugify";
-import fs from "fs/promises";
-import childProcess from "child_process";
-import { promisify } from "util";
 import prompts from "prompts";
 
 const exec = promisify(childProcess.exec);
+const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
 const rootPath = path.join(__dirname, "..");
 const releaseRcPath = path.join(rootPath, ".releaserc.json");

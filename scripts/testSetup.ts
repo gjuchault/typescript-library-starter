@@ -1,5 +1,5 @@
-import childProcess from "child_process";
-import { promisify } from "util";
+import childProcess from "node:child_process";
+import { promisify } from "node:util";
 import { run } from "./setup";
 
 const exec = promisify(childProcess.exec);

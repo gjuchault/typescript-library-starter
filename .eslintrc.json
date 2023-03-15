@@ -6,7 +6,7 @@
   },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": "./tsconfig.lint.json"
+    "project": "./tsconfig.json"
   },
   "plugins": ["import", "@typescript-eslint"],
   "ignorePatterns": ["scripts/*"],

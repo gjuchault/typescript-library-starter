@@ -34,15 +34,15 @@ Typescript Library Starter relies on [volta](https://volta.sh/) to ensure node v
 ### Typescript
 
 Leverages [esbuild](https://github.com/evanw/esbuild) for blazing fast builds, but keeps `tsc` to generate `.d.ts` files.
-Generates two builds to support both ESM and CJS.
+Generates a single ESM build.
 
 Commands:
 
-- `build`: runs typechecking then generates CJS, ESM and `d.ts` files in the `build/` directory
+- `build`: runs typechecking then ESM and `d.ts` files in the `build/` directory
 - `clean`: removes the `build/` directory
 - `type:dts`: only generates `d.ts`
 - `type:check`: only run typechecking
-- `type:build`: only generates CJS and ESM
+- `type:build`: only generates ESM
 
 ### Tests
 
