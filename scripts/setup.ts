@@ -234,4 +234,8 @@ async function logAsyncTask<TResolve>(
   return output;
 }
 
-await main();
+if (import.meta.url.startsWith("file:")) {
+  if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
+    await main();
+  }
+}
