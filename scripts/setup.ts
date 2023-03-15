@@ -7,6 +7,7 @@ import slugify from "slugify";
 import prompts from "prompts";
 
 const exec = promisify(childProcess.exec);
+const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
 const rootPath = path.join(__dirname, "..");
