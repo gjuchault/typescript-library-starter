@@ -60,7 +60,7 @@
     "@typescript-eslint/parser": "^5.55.0",
     "c8": "^7.13.0",
     "cspell": "^6.30.0",
-    "esbuild": "^0.17.11",
+    "esbuild": "^0.17.12",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.7.0",
     "eslint-import-resolver-typescript": "^3.5.3",
