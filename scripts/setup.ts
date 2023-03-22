@@ -179,6 +179,7 @@ async function applyPackageName({
         [/[^\n]+"author[^\n]+\n/, ""],
         [/[^\n]+"repository[^\n]+\n/, ""],
         [/[^\n]+"setup[^\n]+\n/, ""],
+        [/[^\n]+"test:setup[^\n]+\n/, ""],
       ])
     )
   );
