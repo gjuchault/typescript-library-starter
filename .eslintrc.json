@@ -9,7 +9,6 @@
     "project": "./tsconfig.json"
   },
   "plugins": ["import", "@typescript-eslint"],
-  "ignorePatterns": ["scripts/*"],
   "extends": [
     "eslint:recommended",
     "plugin:eslint-comments/recommended",
