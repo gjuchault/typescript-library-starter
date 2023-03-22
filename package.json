@@ -14,7 +14,7 @@
   "repository": "gjuchault/typescript-library-starter",
   "type": "module",
   "exports": "./build/index.js",
-  "types": "./build/src/index.d.ts",
+  "types": "./build/index.d.ts",
   "license": "MIT",
   "engines": {
     "node": "^18.15.0",
