@@ -15,8 +15,7 @@ const releaseRcPath = path.join(rootPath, ".releaserc.json");
 const cspellPath = path.join(rootPath, ".cspell.json");
 const packageJsonPath = path.join(rootPath, "package.json");
 const contributingPath = path.join(rootPath, "CONTRIBUTING.md");
-const setupPath = __filename;
-const testSetupPath = path.join(rootPath, "scripts/test-setup.ts");
+const scriptsPath = path.join(rootPath, "scripts/");
 const workflowPath = path.join(
   rootPath,
   ".github/workflows/typescript-library-starter.yml"
@@ -188,7 +187,7 @@ async function applyPackageName({
 async function cleanup({ packageName }: { packageName: string }) {
   await logAsyncTask(
     "Removing dependencies",
-    exec("npm uninstall slugify prompts")
+    exec("npm uninstall slugify prompts tsx")
   );
 
   await logAsyncTask(
@@ -196,8 +195,10 @@ async function cleanup({ packageName }: { packageName: string }) {
     replaceInFile(cspellPath, new Map([["gjuchault", packageName]]))
   );
 
-  await logAsyncTask("Removing setup.ts script", fs.rm(setupPath));
-  await logAsyncTask("Removing test-setup.ts script", fs.rm(testSetupPath));
+  await logAsyncTask(
+    "Removing scripts folder",
+    fs.rm(scriptsPath, { recursive: true })
+  );
 }
 
 async function replaceInFile(
