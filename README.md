@@ -33,7 +33,8 @@ TypeScript Library Starter relies on [Volta](https://volta.sh/) to ensure the No
 
 ### TypeScript
 
-Leverages [esbuild](https://github.com/evanw/esbuild) for blazing-fast builds but keeps `tsc` to generate `.d.ts` files. Generates a single ESM build.
+Leverages [esbuild](https://github.com/evanw/esbuild) for blazing-fast builds but keeps `tsc` to generate `.d.ts` files. 
+Generates a single ESM build.
 
 Commands:
 
@@ -55,7 +56,8 @@ Commands:
 
 ### Format & lint
 
-This template relies on the combination of [ESLint](https://github.com/eslint/eslint) — through [TypeScript-ESLint](https://github.com/typescript-eslint/typescript-eslint) for linting, and [Prettier](https://github.com/prettier/prettier) for formatting. It also uses [cspell](https://github.com/streetsidesoftware/cspell) to ensure correct spelling.
+This template relies on the combination of [ESLint](https://github.com/eslint/eslint) — through [TypeScript-ESLint](https://github.com/typescript-eslint/typescript-eslint) for linting, and [Prettier](https://github.com/prettier/prettier) for formatting. 
+It also uses [cspell](https://github.com/streetsidesoftware/cspell) to ensure correct spelling.
 
 Commands:
 
@@ -67,7 +69,9 @@ Commands:
 
 ### Releasing
 
-Under the hood, this library uses [semantic-release](https://github.com/semantic-release/semantic-release) and [Commitizen](https://github.com/commitizen/cz-cli). The goal is to avoid manual release processes. Using `semantic-release` will automatically create a GitHub release (hence tags) as well as an npm release. Based on your commit history, `semantic-release` will automatically create a patch, feature, or breaking release.
+Under the hood, this library uses [semantic-release](https://github.com/semantic-release/semantic-release) and [Commitizen](https://github.com/commitizen/cz-cli).
+The goal is to avoid manual release processes. Using `semantic-release` will automatically create a GitHub release (hence tags) as well as an npm release.
+Based on your commit history, `semantic-release` will automatically create a patch, feature, or breaking release.
 
 Commands:
 
