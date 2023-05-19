@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+
 import { foobar } from "../index.js";
 
 describe("foobar()", () => {

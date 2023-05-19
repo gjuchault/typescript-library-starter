@@ -8,7 +8,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["import", "@typescript-eslint"],
+  "plugins": ["import", "@typescript-eslint", "simple-import-sort"],
   "extends": [
     "eslint:recommended",
     "plugin:eslint-comments/recommended",
@@ -28,15 +28,8 @@
     }
   },
   "rules": {
-    "import/order": [
-      "error",
-      {
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
-      }
-    ],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
     "import/no-extraneous-dependencies": "error",
     "import/no-mutable-exports": "error",
     "import/no-unused-modules": "error"
