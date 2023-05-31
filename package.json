@@ -77,6 +77,6 @@
     "source-map-support": "^0.5.21",
     "tsx": "^3.12.7",
     "typescript": "^5.0.4",
-    "vitest": "^0.31.1"
+    "vitest": "^0.31.2"
   }
 }
