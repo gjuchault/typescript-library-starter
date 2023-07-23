@@ -8,6 +8,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
+  "ignorePatterns": ["scripts/*"],
   "plugins": ["import", "@typescript-eslint", "simple-import-sort"],
   "extends": [
     "eslint:recommended",
@@ -32,6 +33,7 @@
     "simple-import-sort/exports": "error",
     "import/no-extraneous-dependencies": "error",
     "import/no-mutable-exports": "error",
-    "import/no-unused-modules": "error"
+    "import/no-unused-modules": "error",
+    "import/consistent-type-specifier-style": ["error", "prefer-top-level"]
   }
 }
