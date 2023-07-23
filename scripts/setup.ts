@@ -7,7 +7,6 @@ import slugify from "slugify";
 import prompts from "prompts";
 
 const exec = promisify(childProcess.exec);
-const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
 const rootPath = path.join(__dirname, "..");
@@ -187,7 +186,7 @@ async function applyPackageName({
 async function cleanup({ packageName }: { packageName: string }) {
   await logAsyncTask(
     "Removing dependencies",
-    exec("npm uninstall slugify prompts tsx")
+    exec("npm uninstall slugify prompts")
   );
 
   await logAsyncTask(
@@ -196,8 +195,13 @@ async function cleanup({ packageName }: { packageName: string }) {
   );
 
   await logAsyncTask(
-    "Removing scripts folder",
-    fs.rm(scriptsPath, { recursive: true })
+    "Removing setup script",
+    fs.rm(path.join(scriptsPath, "setup.ts"))
+  );
+
+  await logAsyncTask(
+    "Removing test-setup script",
+    fs.rm(path.join(scriptsPath, "test-setup.ts"))
   );
 }
 
