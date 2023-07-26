@@ -96,14 +96,25 @@ async function applyPackageName({
 }) {
   const packageSlug = slugify(packageName);
 
+  const setupAction = `  test-setup:
+    name: ⚡ Setup tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - uses: bahmutov/npm-install@v1
+      - name: ⚡ Tests
+        run: npm run test:setup`
+
   await logAsyncTask(
     "Changing GitHub workflow file",
     replaceInFile(
       workflowPath,
-      new Map([
+      new Map<string | RegExp, string>([
         [/Typescript Library Starter/, packageName],
         [/typescript-library-starter/, packageSlug],
-        [/\s+- name: Setup test\s+run:[\w :]+/i, ""],
+        [setupAction, ""],
+        [/, test-setup/i, ""]
       ])
     )
   );
