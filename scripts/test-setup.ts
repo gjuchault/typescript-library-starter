@@ -8,7 +8,7 @@ const exec = promisify(childProcess.exec);
 async function testSetup() {
   try {
     const { stdout: gitEmail } = await exec(
-      `git config --global --get user.email`
+      `git config --global --get user.email`,
     );
 
     if (!gitEmail.trim().length) {
@@ -50,7 +50,7 @@ async function restore() {
 async function testNoGrep(pattern: string) {
   try {
     await exec(
-      `grep -r "${pattern}" --exclude-dir=node_modules --exclude-dir=.git --exclude=README.md .`
+      `grep -r "${pattern}" --exclude-dir=node_modules --exclude-dir=.git --exclude=README.md .`,
     );
   } catch (err) {
     if ((err as unknown as Record<string, string>).stderr === "") {

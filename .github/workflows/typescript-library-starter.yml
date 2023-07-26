@@ -6,40 +6,86 @@ env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
-  typescript-library-starter:
+  lint:
+    name: ⬣ ESLint
     runs-on: ubuntu-latest
-
-    concurrency:
-      group: ${{ github.ref }}
-      cancel-in-progress: true
-
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      - run: npm ci
-
-      - name: Dependencies audit
-        run: npm audit --audit-level=moderate
-
-      - name: Build
-        run: npm run build
-
-      - name: Format check
-        run: npm run format:check
-
-      - name: Lint check
+      - uses: bahmutov/npm-install@v1
+      - name: ⬣ ESLint
         run: npm run lint:check
 
-      - name: Spell check
+  audit:
+    name: 🛡️ Audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: 🛡️ Audit
+        run: npm audit --audit-level=high
+
+  format:
+    name: 🔬 Format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - uses: bahmutov/npm-install@v1
+      - name: 🔬 Format
+        run: npm run format:check
+
+  spell:
+    name: 🈸 Spellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - uses: bahmutov/npm-install@v1
+      - name: 🈸 Spellcheck
         run: npm run spell:check
 
-      - name: Test
+  type:
+    name: ʦ Typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - uses: bahmutov/npm-install@v1
+      - name: ʦ Typecheck
+        run: npm run type:check
+
+  test:
+    name: ⚡ Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - uses: bahmutov/npm-install@v1
+      - name: ⚡ Tests
         run: npm run test
 
-      - name: Setup test
+  test-setup:
+    name: ⚡ Setup tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - uses: bahmutov/npm-install@v1
+      - name: ⚡ Tests
         run: npm run test:setup
 
-      - name: Release
+  build-and-release:
+    name: 🚀 Build & release
+    needs: [lint, audit, format, spell, type, test, test-setup]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - uses: bahmutov/npm-install@v1
+      - name: 🔨 Build
+        run: npm run build
+      - name: 🚀 Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
