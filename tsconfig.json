@@ -2,7 +2,7 @@
   "include": ["./src/**/*.ts"],
   "compilerOptions": {
     "lib": ["es2022"],
-    "module": "esnext",
+    "module": "nodenext",
     "target": "es2022",
     "moduleResolution": "nodenext",
 
