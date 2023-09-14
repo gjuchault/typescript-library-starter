@@ -75,7 +75,7 @@
     "semantic-release": "^21.1.1",
     "slugify": "^1.6.6",
     "source-map-support": "^0.5.21",
-    "tsx": "^3.12.8",
+    "tsx": "^3.12.10",
     "typescript": "^5.2.2",
     "vitest": "^0.34.4"
   }
