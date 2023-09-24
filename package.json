@@ -52,7 +52,7 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/commit-analyzer": "^10.0.4",
     "@semantic-release/github": "^9.0.7",
-    "@semantic-release/npm": "^10.0.6",
+    "@semantic-release/npm": "^11.0.0",
     "@semantic-release/release-notes-generator": "^11.0.7",
     "@types/node": "^18.16.3",
     "@types/prompts": "^2.4.4",
