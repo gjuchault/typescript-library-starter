@@ -63,7 +63,7 @@ jobs:
       - uses: actions/setup-node@v3
       - uses: bahmutov/npm-install@v1
       - name: ⚡ Tests
-        run: npm run test
+        run: npm run test:coverage
 
   test-setup:
     name: ⚡ Setup tests

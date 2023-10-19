@@ -58,6 +58,7 @@
     "@types/prompts": "^2.4.7",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
+    "@vitest/coverage-v8": "^0.34.6",
     "c8": "^8.0.1",
     "cspell": "^7.3.8",
     "esbuild": "^0.19.5",
