@@ -31,7 +31,7 @@
     "setup": "tsx ./scripts/setup.ts",
     "build": "npm run clean && npm run type:dts && npm run build:main",
     "build:main": "tsx ./scripts/build.ts",
-    "clean": "rimraf build coverage nyc_output",
+    "clean": "rimraf build coverage",
     "type:dts": "tsc --emitDeclarationOnly --project tsconfig.build.json",
     "type:check": "tsc --noEmit",
     "format": "prettier \"src/**/*.ts\" --write",
