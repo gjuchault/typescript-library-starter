@@ -1,4 +1,6 @@
-import { describe, expect, it } from "vitest";
+import * as assert from "node:assert/strict";
+
+import { describe, it } from "vitest";
 
 import { foobar } from "../index.js";
 
@@ -9,7 +11,7 @@ describe("foobar()", () => {
 
     describe("when called", () => {
       it("returns the sum of them multiplied by 3", () => {
-        expect(foobar(first, second)).toEqual(9);
+        assert.equal(foobar(first, second), 9);
       });
     });
   });
