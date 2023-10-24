@@ -9,7 +9,7 @@ const buildPath = path.join(process.cwd(), "build");
 async function buildFile(filePath: string) {
   return esbuild({
     platform: "node",
-    target: "node18",
+    target: "node21",
     format: "esm",
     nodePaths: [srcPath],
     sourcemap: true,
