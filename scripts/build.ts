@@ -19,11 +19,11 @@ async function buildFile(filePath: string) {
   });
 }
 
-async function build() {
+async function build({ includeTests = false }: { includeTests?: boolean }) {
   const filesStream = globbyStream("**/*.ts", {
     cwd: srcPath,
     onlyFiles: true,
-    ignore: ["__tests__"],
+    ignore: includeTests ? [] : ["__tests__"],
   });
 
   for await (const filePath of filesStream) {
@@ -37,6 +37,8 @@ async function build() {
 
 if (import.meta.url.startsWith("file:")) {
   if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
-    await build();
+    await build({
+      includeTests: process.argv.includes("--tests"),
+    });
   }
 }

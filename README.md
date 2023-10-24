@@ -46,13 +46,13 @@ Commands:
 
 ### Tests
 
-TypeScript Library Starter uses [Vitest](https://vitest.dev/). Coverage is done through Vitest, using [c8](https://github.com/bcoe/c8).
+TypeScript Library Starter uses [Node.js's native test runner](https://nodejs.org/api/test.html). Coverage is done using [c8](https://github.com/bcoe/c8) but will switch to Node.js's one once out.
 
 Commands:
 
-- `test`: runs Vitest test runner
-- `test:watch`: runs Vitest test runner in watch mode
-- `test:coverage`: runs Vitest test runner and generates coverage reports
+- `test`: runs test runner
+- `test:watch`: runs test runner in watch mode
+- `test:coverage`: runs test runner and generates coverage reports
 
 ### Format & lint
 
