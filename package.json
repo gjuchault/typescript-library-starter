@@ -17,11 +17,11 @@
   "types": "./build/index.d.ts",
   "license": "MIT",
   "engines": {
-    "node": "^21.0.0",
+    "node": "^21.1.0",
     "npm": "^10.2.0"
   },
   "volta": {
-    "node": "21.0.0",
+    "node": "21.1.0",
     "npm": "10.2.0"
   },
   "publishConfig": {
