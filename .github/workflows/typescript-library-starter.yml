@@ -11,7 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: volta-cli/action@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
       - uses: bahmutov/npm-install@v1
 
   lint:
@@ -20,7 +22,9 @@ jobs:
     needs: [dependencies]
     steps:
       - uses: actions/checkout@v4
-      - uses: volta-cli/action@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
       - uses: bahmutov/npm-install@v1
       - name: ⬣ ESLint
         run: npm run lint:check
@@ -31,7 +35,9 @@ jobs:
     needs: [dependencies]
     steps:
       - uses: actions/checkout@v4
-      - uses: volta-cli/action@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
       - name: 🛡️ Audit
         run: npm audit --audit-level=high
 
@@ -41,7 +47,9 @@ jobs:
     needs: [dependencies]
     steps:
       - uses: actions/checkout@v4
-      - uses: volta-cli/action@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
       - uses: bahmutov/npm-install@v1
       - name: 🔬 Format
         run: npm run format:check
@@ -52,7 +60,9 @@ jobs:
     needs: [dependencies]
     steps:
       - uses: actions/checkout@v4
-      - uses: volta-cli/action@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
       - uses: bahmutov/npm-install@v1
       - name: 🈸 Spellcheck
         run: npm run spell:check
@@ -63,7 +73,9 @@ jobs:
     needs: [dependencies]
     steps:
       - uses: actions/checkout@v4
-      - uses: volta-cli/action@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
       - uses: bahmutov/npm-install@v1
       - name: ʦ Typecheck
         run: npm run type:check
@@ -74,7 +86,9 @@ jobs:
     needs: [dependencies]
     steps:
       - uses: actions/checkout@v4
-      - uses: volta-cli/action@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
       - uses: bahmutov/npm-install@v1
       - name: ⚡ Tests
         run: npm run test:coverage
@@ -85,7 +99,9 @@ jobs:
     needs: [dependencies]
     steps:
       - uses: actions/checkout@v4
-      - uses: volta-cli/action@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
       - uses: bahmutov/npm-install@v1
       - name: ⚡ Tests
         run: npm run test:setup
@@ -96,7 +112,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: volta-cli/action@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
       - uses: bahmutov/npm-install@v1
       - name: 🔨 Build
         run: npm run build
