@@ -67,7 +67,7 @@
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "globby": "^13.2.2",
+    "globby": "^14.0.0",
     "prettier": "^3.0.3",
     "prompts": "^2.4.2",
     "rimraf": "^5.0.5",
