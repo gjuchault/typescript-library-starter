@@ -6,6 +6,8 @@
 
 Yet another (opinionated) TypeScript library starter template.
 
+If you're looking for a backend service starter, check out my [typescript-service-starter](https://github.com/gjuchault/typescript-service-starter)
+
 ## Opinions and limitations
 
 1. Relies as much as possible on each included library's defaults
@@ -22,8 +24,8 @@ Yet another (opinionated) TypeScript library starter template.
 
 To enable deployment, you will need to:
 
-1. Set up the `NPM_TOKEN` secret in GitHub Actions ([Settings > Secrets > Actions](https://github.com/gjuchault/typescript-service-starter/settings/secrets/actions))
-2. Give `GITHUB_TOKEN` write permissions for GitHub releases ([Settings > Actions > General](https://github.com/gjuchault/typescript-service-starter/settings/actions) > Workflow permissions)
+1. Set up the `NPM_TOKEN` secret in GitHub Actions ([Settings > Secrets > Actions](https://github.com/gjuchault/typescript-library-starter/settings/secrets/actions))
+2. Give `GITHUB_TOKEN` write permissions for GitHub releases ([Settings > Actions > General](https://github.com/gjuchault/typescript-library-starter/settings/actions) > Workflow permissions)
 
 ## Features
 
