@@ -6,9 +6,18 @@ env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
+  dependencies:
+    name: 📦 Dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - uses: bahmutov/npm-install@v1
+
   lint:
     name: ⬣ ESLint
     runs-on: ubuntu-latest
+    needs: [dependencies]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -19,6 +28,7 @@ jobs:
   audit:
     name: 🛡️ Audit
     runs-on: ubuntu-latest
+    needs: [dependencies]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -28,6 +38,7 @@ jobs:
   format:
     name: 🔬 Format
     runs-on: ubuntu-latest
+    needs: [dependencies]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -38,6 +49,7 @@ jobs:
   spell:
     name: 🈸 Spellcheck
     runs-on: ubuntu-latest
+    needs: [dependencies]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -48,6 +60,7 @@ jobs:
   type:
     name: ʦ Typecheck
     runs-on: ubuntu-latest
+    needs: [dependencies]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -58,6 +71,7 @@ jobs:
   test:
     name: ⚡ Tests
     runs-on: ubuntu-latest
+    needs: [dependencies]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -68,6 +82,7 @@ jobs:
   test-setup:
     name: ⚡ Setup tests
     runs-on: ubuntu-latest
+    needs: [dependencies]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
