@@ -3,13 +3,13 @@ import { describe, it } from "node:test";
 
 import { foobar } from "../index.js";
 
-describe("foobar()", () => {
-  describe("given two positive integers", () => {
+await describe("foobar()", async () => {
+  await describe("given two positive integers", async () => {
     const first = 1;
     const second = 2;
 
-    describe("when called", () => {
-      it("returns the sum of them multiplied by 3", () => {
+    await describe("when called", async () => {
+      await it("returns the sum of them multiplied by 3", () => {
         assert.equal(foobar(first, second), 9);
       });
     });
