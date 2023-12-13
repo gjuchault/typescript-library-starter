@@ -6,9 +6,11 @@
     "esbuild",
     "gjuchault",
     "octocat",
+    "outdir",
     "rmrf",
+    "ryansonshine",
     "socio",
-    "ryansonshine"
+    "tsdoc"
   ],
   "flagWords": [],
   "ignorePaths": [

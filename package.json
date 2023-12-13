@@ -29,10 +29,11 @@
   },
   "scripts": {
     "setup": "tsx ./scripts/setup.ts",
-    "build": "npm run clean && npm run type:dts && npm run build:src",
+    "build": "npm run clean && npm run type:dts && npm run type:extract && npm run build:src",
     "build:src": "tsx ./scripts/build.ts",
     "clean": "rimraf build coverage",
     "type:dts": "tsc --emitDeclarationOnly --project tsconfig.build.json",
+    "type:extract": "api-extractor run && rimraf --glob \"./build/**/*.d.ts\" && mv trimmed.d.ts build/index.d.ts",
     "type:check": "tsc --noEmit",
     "format": "prettier \"src/**/*.ts\" --write",
     "format:check": "prettier \"src/**/*.ts\" --check",
@@ -47,6 +48,7 @@
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
+    "@microsoft/api-extractor": "^7.38.5",
     "@ryansonshine/commitizen": "^4.2.8",
     "@ryansonshine/cz-conventional-changelog": "^3.3.4",
     "@semantic-release/changelog": "^6.0.3",
