@@ -6,6 +6,11 @@
       "type": "shell",
       "command": "${workspaceRoot}/node_modules/tsx/dist/cli.mjs",
       "args": ["--test", "${relativeFile}"],
+      "presentation": {
+        "clear": true,
+        "showReuseMessage": false,
+        "echo": false
+      },
       "group": {
         "kind": "test",
         "isDefault": true
