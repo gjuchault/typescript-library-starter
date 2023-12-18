@@ -28,9 +28,9 @@
     "access": "public"
   },
   "scripts": {
-    "setup": "tsx ./scripts/setup.ts",
+    "setup": "node --import ./swc-esm-register.js ./scripts/setup.ts",
     "build": "npm run clean && npm run type:dts && npm run type:extract && npm run build:src",
-    "build:src": "tsx ./scripts/build.ts",
+    "build:src": "node --import ./swc-esm-register.js ./scripts/build.ts",
     "clean": "rimraf build coverage",
     "type:dts": "tsc --emitDeclarationOnly --project tsconfig.build.json",
     "type:extract": "api-extractor run && rimraf --glob \"./build/**/*.d.ts\" && mv trimmed.d.ts build/index.d.ts",
@@ -39,10 +39,10 @@
     "format:check": "prettier \"src/**/*.ts\" --check",
     "lint": "eslint src --ext .ts --fix",
     "lint:check": "eslint src --ext .ts",
-    "test": "tsx --test src/**/*.test.ts",
-    "test:watch": "tsx --watch --test src/**/*.test.ts",
-    "test:coverage": "NODE_V8_COVERAGE=./coverage c8 -r html tsx --experimental-test-coverage --test src/**/*.test.ts",
-    "test:setup": "tsx ./scripts/test-setup.ts",
+    "test": "node --import ./swc-esm-register.js --test src/**/*.test.ts",
+    "test:watch": "node --import ./swc-esm-register.js --watch --test src/**/*.test.ts",
+    "test:coverage": "NODE_V8_COVERAGE=./coverage c8 -r html node --import ./swc-esm-register.js --experimental-test-coverage --test src/**/*.test.ts",
+    "test:setup": "node --import ./swc-esm-register.js ./scripts/test-setup.ts",
     "spell:check": "cspell \"{README.md,CODE_OF_CONDUCT.md,CONTRIBUTING.md,.github/*.md,src/**/*.ts}\"",
     "cz": "cz",
     "semantic-release": "semantic-release"
@@ -56,6 +56,7 @@
     "@semantic-release/github": "^9.2.5",
     "@semantic-release/npm": "^11.0.2",
     "@semantic-release/release-notes-generator": "^12.1.0",
+    "@swc-node/register": "^1.6.8",
     "@types/node": "^20.10.4",
     "@types/prompts": "^2.4.9",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
@@ -74,7 +75,6 @@
     "rimraf": "^5.0.5",
     "semantic-release": "^22.0.12",
     "slugify": "^1.6.6",
-    "tsx": "^4.6.2",
     "typescript": "^5.3.3"
   }
 }
