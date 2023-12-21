@@ -33,7 +33,7 @@
     "build:src": "node --import=@nitrogql/esbuild-register ./scripts/build.ts",
     "clean": "rimraf build coverage",
     "type:dts": "tsc --emitDeclarationOnly --project tsconfig.build.json",
-    "type:extract": "api-extractor run && rimraf --glob \"./build/**/*.d.ts\" && mv trimmed.d.ts build/index.d.ts",
+    "type:extract": "api-extractor run && rimraf --glob \"./build/*\" && mv trimmed.d.ts build/index.d.ts",
     "type:check": "tsc --noEmit",
     "format": "prettier \"src/**/*.ts\" --write",
     "format:check": "prettier \"src/**/*.ts\" --check",
