@@ -8,8 +8,12 @@
       "name": "Debug Current Test File",
       "autoAttachChildProcesses": true,
       "skipFiles": ["<node_internals>/**", "**/node_modules/**"],
-      "program": "${workspaceRoot}/node_modules/tsx/dist/cli.mjs",
-      "args": ["--inspect", "--test", "${relativeFile}"],
+      "program": "${relativeFile}",
+      "runtimeArgs": [
+        "--import=@nitrogql/esbuild-register",
+        "--inspect",
+        "--test"
+      ],
       "smartStep": true,
       "console": "integratedTerminal"
     }

@@ -4,8 +4,12 @@
     {
       "label": "Run Current Test File",
       "type": "shell",
-      "command": "${workspaceRoot}/node_modules/tsx/dist/cli.mjs",
-      "args": ["--test", "${relativeFile}"],
+      "command": "node",
+      "args": [
+        "--import=@nitrogql/esbuild-register",
+        "--test",
+        "${relativeFile}"
+      ],
       "presentation": {
         "clear": true,
         "showReuseMessage": false,
