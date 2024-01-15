@@ -14,7 +14,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: package.json
-      - uses: bahmutov/npm-install@v1
+          cache: "npm"
+      - run: npm ci
 
   lint:
     name: ⬣ ESLint
@@ -25,7 +26,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: package.json
-      - uses: bahmutov/npm-install@v1
+          cache: "npm"
+      - run: npm ci
       - name: ⬣ ESLint
         run: npm run lint:check
 
@@ -38,6 +40,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: package.json
+          cache: "npm"
       - name: 🛡️ Audit
         run: npm audit --audit-level=high
 
@@ -50,7 +53,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: package.json
-      - uses: bahmutov/npm-install@v1
+          cache: "npm"
+      - run: npm ci
       - name: 🔬 Format
         run: npm run format:check
 
@@ -63,7 +67,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: package.json
-      - uses: bahmutov/npm-install@v1
+          cache: "npm"
+      - run: npm ci
       - name: 🈸 Spellcheck
         run: npm run spell:check
 
@@ -76,7 +81,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: package.json
-      - uses: bahmutov/npm-install@v1
+          cache: "npm"
+      - run: npm ci
       - name: ʦ Typecheck
         run: npm run type:check
 
@@ -89,7 +95,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: package.json
-      - uses: bahmutov/npm-install@v1
+          cache: "npm"
+      - run: npm ci
       - name: ⚡ Tests
         run: npm run test:coverage
 
@@ -102,7 +109,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: package.json
-      - uses: bahmutov/npm-install@v1
+          cache: "npm"
+      - run: npm ci
       - name: ⚡ Tests
         run: npm run test:setup
 
@@ -115,7 +123,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: package.json
-      - uses: bahmutov/npm-install@v1
+          cache: "npm"
+      - run: npm ci
       - name: 🔨 Build
         run: npm run build
       - name: 🚀 Release
