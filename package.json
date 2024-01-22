@@ -62,7 +62,6 @@
     "c8": "^9.1.0",
     "cspell": "^8.3.2",
     "esbuild": "^0.19.12",
-    "prettier": "^3.2.4",
     "prompts": "^2.4.2",
     "rimraf": "^5.0.5",
     "semantic-release": "^23.0.0",
