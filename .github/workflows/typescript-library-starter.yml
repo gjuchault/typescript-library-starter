@@ -18,7 +18,7 @@ jobs:
       - run: npm ci
 
   lint:
-    name: ⬣ ESLint
+    name: 🔬 Lint & Format
     runs-on: ubuntu-latest
     needs: [dependencies]
     steps:
@@ -28,7 +28,7 @@ jobs:
           node-version-file: package.json
           cache: "npm"
       - run: npm ci
-      - name: ⬣ ESLint
+      - name: 🔬 Lint & Format
         run: npm run lint:check
 
   audit:
@@ -43,20 +43,6 @@ jobs:
           cache: "npm"
       - name: 🛡️ Audit
         run: npm audit --audit-level=high
-
-  format:
-    name: 🔬 Format
-    runs-on: ubuntu-latest
-    needs: [dependencies]
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: package.json
-          cache: "npm"
-      - run: npm ci
-      - name: 🔬 Format
-        run: npm run format:check
 
   spell:
     name: 🈸 Spellcheck
@@ -116,7 +102,7 @@ jobs:
 
   build-and-release:
     name: 🚀 Build & release
-    needs: [lint, audit, format, spell, type, test, test-setup]
+    needs: [lint, audit, spell, type, test, test-setup]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
