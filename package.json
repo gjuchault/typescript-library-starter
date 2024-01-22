@@ -35,10 +35,8 @@
     "type:dts": "tsc --emitDeclarationOnly --project tsconfig.build.json",
     "type:extract": "api-extractor run && rimraf --glob \"./build/*\" && mv trimmed.d.ts build/index.d.ts",
     "type:check": "tsc --noEmit",
-    "format": "prettier \"src/**/*.ts\" --write",
-    "format:check": "prettier \"src/**/*.ts\" --check",
-    "lint": "eslint src --ext .ts --fix",
-    "lint:check": "eslint src --ext .ts",
+    "lint": "biome check src --apply-unsafe",
+    "lint:check": "biome ci src",
     "test": "node --import=@nitrogql/esbuild-register --test \"src/**/*.test.ts\"",
     "test:watch": "node --import=@nitrogql/esbuild-register --watch --test \"src/**/*.test.ts\"",
     "test:coverage": "NODE_V8_COVERAGE=./coverage c8 -r html node --import=@nitrogql/esbuild-register --experimental-test-coverage --test \"src/**/*.test.ts\"",
@@ -48,6 +46,7 @@
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.5.3",
     "@microsoft/api-extractor": "^7.39.4",
     "@nitrogql/esbuild-register": "^1.6.0-beta.0",
     "@ryansonshine/commitizen": "^4.2.8",

@@ -58,15 +58,15 @@ Commands:
 
 ### Format & lint
 
-This template relies on the combination of [ESLint](https://github.com/eslint/eslint) — through [TypeScript-ESLint](https://github.com/typescript-eslint/typescript-eslint) for linting, and [Prettier](https://github.com/prettier/prettier) for formatting.
+This template relies on [Biome](https://biomejs.dev/) to do both formatting & linting in no time.
 It also uses [cspell](https://github.com/streetsidesoftware/cspell) to ensure correct spelling.
 
 Commands:
 
 - `format`: runs Prettier with automatic fixing
 - `format:check`: runs Prettier without automatic fixing (used in CI)
-- `lint`: runs ESLint with automatic fixing
-- `lint:check`: runs ESLint without automatic fixing (used in CI)
+- `lint`: runs Biome with automatic fixing
+- `lint:check`: runs Biome without automatic fixing (used in CI)
 - `spell:check`: runs spell checking
 
 ### Releasing
