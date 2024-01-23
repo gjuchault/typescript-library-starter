@@ -1,3 +1,5 @@
-export function foo() {
-  return "foo";
+export type Foo = "foo";
+
+export function foo(): Foo {
+	return "foo";
 }

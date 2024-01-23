@@ -1,0 +1,14 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
+	"files": {
+		"ignore": ["build", "node_modules", "coverage"]
+	},
+	"linter": {
+		"rules": {
+			"all": true,
+			"nursery": {
+				"noNodejsModules": "off"
+			}
+		}
+	}
+}

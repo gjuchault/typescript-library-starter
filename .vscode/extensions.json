@@ -1,6 +1,6 @@
 {
-  "recommendations": [
-    "eamodio.gitlens",
-    "streetsidesoftware.code-spell-checker"
-  ]
+	"recommendations": [
+		"eamodio.gitlens",
+		"streetsidesoftware.code-spell-checker"
+	]
 }
