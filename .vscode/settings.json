@@ -5,6 +5,9 @@
 	"typescript.tsdk": "node_modules/typescript/lib",
 	"typescript.enablePromptUseWorkspaceTsdk": true,
 	"files.associations": { "*.json": "jsonc" },
+	"editor.indentSize": 2,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
 	"[javascript]": {
 		"editor.defaultFormatter": "biomejs.biome"
 	},
