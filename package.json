@@ -63,7 +63,7 @@
 		"esbuild": "^0.20.0",
 		"prompts": "^2.4.2",
 		"rimraf": "^5.0.5",
-		"semantic-release": "^23.0.0",
+		"semantic-release": "^23.0.2",
 		"slugify": "^1.6.6",
 		"typescript": "^5.3.3"
 	}
