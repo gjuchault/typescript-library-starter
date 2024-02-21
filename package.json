@@ -60,7 +60,7 @@
 		"@types/prompts": "^2.4.9",
 		"c8": "^9.1.0",
 		"cspell": "^8.4.1",
-		"esbuild": "^0.20.0",
+		"esbuild": "^0.20.1",
 		"prompts": "^2.4.2",
 		"rimraf": "^5.0.5",
 		"semantic-release": "^23.0.2",
