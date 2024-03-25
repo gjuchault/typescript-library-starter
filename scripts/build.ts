@@ -9,7 +9,7 @@ const buildPath = path.join(process.cwd(), "build");
 async function build() {
 	const buildId = randomUUID().replace(/-/g, "");
 
-	return esbuild({
+	return await esbuild({
 		platform: "node",
 		target: "node21",
 		format: "esm",

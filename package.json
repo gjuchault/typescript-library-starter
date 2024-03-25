@@ -2,12 +2,7 @@
 	"name": "@gjuchault/typescript-library-starter",
 	"version": "0.0.0-development",
 	"description": "Yet another typescript library starter template",
-	"keywords": [
-		"typescript",
-		"library",
-		"starter",
-		"template"
-	],
+	"keywords": ["typescript", "library", "starter", "template"],
 	"homepage": "https://github.com/gjuchault/typescript-library-starter",
 	"bugs": "https://github.com/gjuchault/typescript-library-starter/issues",
 	"author": "Gabriel Juchault <gabriel.juchault@gmail.com>",
@@ -17,12 +12,12 @@
 	"types": "./build/index.d.ts",
 	"license": "MIT",
 	"engines": {
-		"node": "^21.2.0",
-		"npm": "^10.2.3"
+		"node": "^21.7.1",
+		"npm": "^10.5.0"
 	},
 	"volta": {
-		"node": "21.2.0",
-		"npm": "10.2.3"
+		"node": "21.7.1",
+		"npm": "10.5.0"
 	},
 	"publishConfig": {
 		"access": "public"
@@ -46,24 +41,24 @@
 		"semantic-release": "semantic-release"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^1.5.3",
+		"@biomejs/biome": "^1.6.2",
 		"@microsoft/api-extractor": "^7.43.0",
-		"@nitrogql/esbuild-register": "^1.6.0-beta.0",
+		"@nitrogql/esbuild-register": "^1.7.0-beta.2",
 		"@ryansonshine/commitizen": "^4.2.8",
 		"@ryansonshine/cz-conventional-changelog": "^3.3.4",
 		"@semantic-release/changelog": "^6.0.3",
-		"@semantic-release/commit-analyzer": "^11.1.0",
-		"@semantic-release/github": "^9.2.6",
-		"@semantic-release/npm": "^11.0.3",
-		"@semantic-release/release-notes-generator": "^12.1.0",
-		"@types/node": "^20.10.4",
+		"@semantic-release/commit-analyzer": "^12.0.0",
+		"@semantic-release/github": "^10.0.2",
+		"@semantic-release/npm": "^12.0.0",
+		"@semantic-release/release-notes-generator": "^13.0.0",
+		"@types/node": "^20.11.30",
 		"@types/prompts": "^2.4.9",
 		"c8": "^9.1.0",
 		"cspell": "^8.6.0",
 		"esbuild": "^0.20.2",
 		"prompts": "^2.4.2",
 		"rimraf": "^5.0.5",
-		"semantic-release": "^23.0.5",
+		"semantic-release": "^23.0.6",
 		"slugify": "^1.6.6",
 		"typescript": "^5.4.3"
 	}
