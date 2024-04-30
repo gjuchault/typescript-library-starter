@@ -1,4 +1,4 @@
-import * as assert from "node:assert/strict";
+import { equal } from "node:assert/strict";
 import { describe, it } from "node:test";
 
 import { foobar } from "../index.js";
@@ -10,7 +10,7 @@ await describe("foobar()", async () => {
 
 		await describe("when called", async () => {
 			await it("returns the sum of them multiplied by 3", () => {
-				assert.equal(foobar(first, second), 9);
+				equal(foobar(first, second), 9);
 			});
 		});
 	});
