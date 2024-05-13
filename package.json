@@ -2,7 +2,12 @@
 	"name": "@gjuchault/typescript-library-starter",
 	"version": "0.0.0-development",
 	"description": "Yet another typescript library starter template",
-	"keywords": ["typescript", "library", "starter", "template"],
+	"keywords": [
+		"typescript",
+		"library",
+		"starter",
+		"template"
+	],
 	"homepage": "https://github.com/gjuchault/typescript-library-starter",
 	"bugs": "https://github.com/gjuchault/typescript-library-starter/issues",
 	"author": "Gabriel Juchault <gabriel.juchault@gmail.com>",
@@ -55,7 +60,7 @@
 		"@types/prompts": "^2.4.9",
 		"c8": "^9.1.0",
 		"cspell": "^8.7.0",
-		"esbuild": "^0.20.2",
+		"esbuild": "^0.21.2",
 		"esbuild-register": "^3.5.0",
 		"prompts": "^2.4.2",
 		"rimraf": "^5.0.5",
