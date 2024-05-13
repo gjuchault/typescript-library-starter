@@ -2,7 +2,12 @@
 	"name": "@gjuchault/typescript-library-starter",
 	"version": "0.0.0-development",
 	"description": "Yet another typescript library starter template",
-	"keywords": ["typescript", "library", "starter", "template"],
+	"keywords": [
+		"typescript",
+		"library",
+		"starter",
+		"template"
+	],
 	"homepage": "https://github.com/gjuchault/typescript-library-starter",
 	"bugs": "https://github.com/gjuchault/typescript-library-starter/issues",
 	"author": "Gabriel Juchault <gabriel.juchault@gmail.com>",
@@ -61,7 +66,7 @@
 		"rimraf": "^5.0.5",
 		"semantic-release": "^23.0.8",
 		"slugify": "^1.6.6",
-		"tsx": "^4.7.3",
+		"tsx": "^4.10.1",
 		"typescript": "^5.4.5"
 	}
 }
