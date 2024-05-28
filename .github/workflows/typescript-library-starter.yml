@@ -29,7 +29,7 @@ jobs:
           cache: "npm"
       - run: npm ci
       - name: 🔬 Lint & Format
-        run: npm run lint:check
+        run: node --run lint:check
 
   audit:
     name: 🛡️ Audit
@@ -56,7 +56,7 @@ jobs:
           cache: "npm"
       - run: npm ci
       - name: 🈸 Spellcheck
-        run: npm run spell:check
+        run: node --run spell:check
 
   type:
     name: ʦ Typecheck
@@ -70,7 +70,7 @@ jobs:
           cache: "npm"
       - run: npm ci
       - name: ʦ Typecheck
-        run: npm run type:check
+        run: node --run type:check
 
   test:
     name: ⚡ Tests
@@ -84,7 +84,7 @@ jobs:
           cache: "npm"
       - run: npm ci
       - name: ⚡ Tests
-        run: npm run test:coverage
+        run: node --run test:coverage
 
   test-setup:
     name: ⚡ Setup tests
@@ -98,7 +98,7 @@ jobs:
           cache: "npm"
       - run: npm ci
       - name: ⚡ Tests
-        run: npm run test:setup
+        run: node --run test:setup
 
   build-and-release:
     name: 🚀 Build & release
@@ -112,9 +112,9 @@ jobs:
           cache: "npm"
       - run: npm ci
       - name: 🔨 Build
-        run: npm run build
+        run: node --run build
       - name: 🚀 Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm run semantic-release
+        run: node --run semantic-release

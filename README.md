@@ -20,7 +20,7 @@ If you're looking for a backend service starter, check out my [typescript-servic
 2. `cd my-project`
 3. `npm install`
 4. `git init` (if you used degit)
-5. `npm run setup`
+5. `node --run setup`
 
 To enable deployment, you will need to:
 

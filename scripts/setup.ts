@@ -101,7 +101,7 @@ async function applyPackageName({
       - uses: actions/setup-node@v3
       - uses: bahmutov/npm-install@v1
       - name: ⚡ Tests
-        run: npm run test:setup\n\n`;
+        run: node --run test:setup\n\n`;
 
 	await logAsyncTask(
 		"Changing GitHub workflow file",
