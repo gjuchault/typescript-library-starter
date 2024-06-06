@@ -2,7 +2,12 @@
 	"name": "@gjuchault/typescript-library-starter",
 	"version": "0.0.0-development",
 	"description": "Yet another typescript library starter template",
-	"keywords": ["typescript", "library", "starter", "template"],
+	"keywords": [
+		"typescript",
+		"library",
+		"starter",
+		"template"
+	],
 	"homepage": "https://github.com/gjuchault/typescript-library-starter",
 	"bugs": "https://github.com/gjuchault/typescript-library-starter/issues",
 	"author": "Gabriel Juchault <gabriel.juchault@gmail.com>",
@@ -41,7 +46,7 @@
 		"semantic-release": "semantic-release"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^1.7.3",
+		"@biomejs/biome": "^1.8.0",
 		"@microsoft/api-extractor": "^7.45.1",
 		"@nitrogql/esbuild-register": "^1.7.0",
 		"@ryansonshine/commitizen": "^4.2.8",
