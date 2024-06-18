@@ -6,7 +6,7 @@
 	"linter": {
 		"rules": {
 			"all": true,
-			"nursery": {
+			"correctness": {
 				"noNodejsModules": "off"
 			}
 		}
