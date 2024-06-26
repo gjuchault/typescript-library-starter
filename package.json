@@ -2,7 +2,12 @@
 	"name": "@gjuchault/typescript-library-starter",
 	"version": "0.0.0-development",
 	"description": "Yet another typescript library starter template",
-	"keywords": ["typescript", "library", "starter", "template"],
+	"keywords": [
+		"typescript",
+		"library",
+		"starter",
+		"template"
+	],
 	"homepage": "https://github.com/gjuchault/typescript-library-starter",
 	"bugs": "https://github.com/gjuchault/typescript-library-starter/issues",
 	"author": "Gabriel Juchault <gabriel.juchault@gmail.com>",
@@ -50,7 +55,7 @@
 		"@semantic-release/commit-analyzer": "^13.0.0",
 		"@semantic-release/github": "^10.0.6",
 		"@semantic-release/npm": "^12.0.1",
-		"@semantic-release/release-notes-generator": "^14.0.0",
+		"@semantic-release/release-notes-generator": "^14.0.1",
 		"@types/node": "^20.14.5",
 		"@types/prompts": "^2.4.9",
 		"c8": "^10.1.2",
