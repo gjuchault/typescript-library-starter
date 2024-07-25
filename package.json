@@ -47,7 +47,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.8.3",
-		"@microsoft/api-extractor": "^7.47.2",
+		"@microsoft/api-extractor": "^7.47.3",
 		"@nitrogql/esbuild-register": "^1.7.0",
 		"@ryansonshine/commitizen": "^4.2.8",
 		"@ryansonshine/cz-conventional-changelog": "^3.3.4",
