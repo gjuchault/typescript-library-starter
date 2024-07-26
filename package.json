@@ -61,7 +61,7 @@
 		"c8": "^10.1.2",
 		"cspell": "^8.12.1",
 		"esbuild": "^0.21.5",
-		"esbuild-register": "^3.5.0",
+		"esbuild-register": "^3.6.0",
 		"prompts": "^2.4.2",
 		"rimraf": "^5.0.8",
 		"semantic-release": "^24.0.0",
