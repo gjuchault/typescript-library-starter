@@ -1,7 +1,7 @@
 import { equal } from "node:assert/strict";
 import { describe, it } from "node:test";
 
-import { foobar } from "../index.js";
+import { foobar } from "../index.ts";
 
 await describe("foobar()", async () => {
 	await describe("given two positive integers", async () => {
