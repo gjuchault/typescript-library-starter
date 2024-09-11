@@ -17,6 +17,7 @@
 		"forceConsistentCasingInFileNames": true,
 		"declaration": true,
 		"resolveJsonModule": true,
+		"emitDeclarationOnly": true,
 		"allowImportingTsExtensions": true
 	}
 }
