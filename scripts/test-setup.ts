@@ -1,5 +1,4 @@
 import childProcess from "node:child_process";
-import url from "node:url";
 import { promisify } from "node:util";
 import { run } from "./setup";
 
@@ -59,8 +58,6 @@ async function testNoGrep(pattern: string) {
 	}
 }
 
-if (import.meta.url.startsWith("file:")) {
-	if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
-		await testSetup();
-	}
+if (process.argv[1] === import.meta.filename) {
+	await testSetup();
 }

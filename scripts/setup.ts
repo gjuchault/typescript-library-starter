@@ -243,8 +243,6 @@ async function logAsyncTask<Resolve>(
 	return output;
 }
 
-if (import.meta.url.startsWith("file:")) {
-	if (process.argv[1] === url.fileURLToPath(import.meta.url)) {
-		await setup();
-	}
+if (process.argv[1] === import.meta.filename) {
+	await setup();
 }

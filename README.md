@@ -42,9 +42,7 @@ Commands:
 
 - `build`: runs type checking, then ESM and `d.ts` files in the `build/` directory
 - `clean`: removes the `build/` directory
-- `type:dts`: only generates `d.ts`
-- `type:check`: only runs type checking
-- `type:build`: only generates ESM
+- `type:check`: runs type checking
 
 ### Tests
 
@@ -63,8 +61,6 @@ It also uses [cspell](https://github.com/streetsidesoftware/cspell) to ensure co
 
 Commands:
 
-- `format`: runs Prettier with automatic fixing
-- `format:check`: runs Prettier without automatic fixing (used in CI)
 - `lint`: runs Biome with automatic fixing
 - `lint:check`: runs Biome without automatic fixing (used in CI)
 - `spell:check`: runs spell checking
