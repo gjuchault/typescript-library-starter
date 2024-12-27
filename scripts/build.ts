@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { promisify } from "node:util";
 import { build as esbuild } from "esbuild";
+import { isMain } from "is-main";
 import { rimraf } from "rimraf";
 import packageJson from "../package.json" with { type: "json" };
 
@@ -80,7 +81,7 @@ async function build(): Promise<void> {
 	console.log(`📦 bundled in ${Date.now() - time}ms`);
 }
 
-if (process.argv[1] === import.meta.filename) {
+if (isMain(import.meta)) {
 	const time = Date.now();
 
 	await clear();

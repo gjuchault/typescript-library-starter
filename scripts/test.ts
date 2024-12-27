@@ -1,4 +1,5 @@
 import { spawn } from "node:child_process";
+import isMain from "is-main";
 
 async function runTests(
 	nodeOptions: string[] = [],
@@ -36,7 +37,7 @@ async function runTests(
 	});
 }
 
-if (process.argv[1] === import.meta.filename) {
+if (isMain(import.meta)) {
 	if (process.argv[2] === "test") {
 		await runTests();
 	}

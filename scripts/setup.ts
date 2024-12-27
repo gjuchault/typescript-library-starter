@@ -3,6 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import url from "node:url";
 import { promisify } from "node:util";
+import isMain from "is-main";
 import prompts from "prompts";
 import slugify from "slugify";
 
@@ -255,6 +256,6 @@ async function logAsyncTask<Resolve>(
 	return output;
 }
 
-if (process.argv[1] === import.meta.filename) {
+if (isMain(import.meta)) {
 	await setup();
 }
