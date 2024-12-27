@@ -4,6 +4,9 @@ import path from "node:path";
 import { promisify } from "node:util";
 import { build as esbuild } from "esbuild";
 import { rimraf } from "rimraf";
+import packageJson from "../package.json" with { type: "json" };
+
+const esbuildTarget = `node${packageJson.volta.node.slice(0, 2)}`;
 
 const execFile = promisify(execFileSync);
 
@@ -17,7 +20,7 @@ async function clear(): Promise<void> {
 
 	// biome-ignore lint/suspicious/noConsole: script file
 	// biome-ignore lint/suspicious/noConsoleLog: script file
-	console.log(`🚀 cleared in ${Date.now() - time}ms`);
+	console.log(`🗑️ cleared in ${Date.now() - time}ms`);
 }
 
 async function buildDts(): Promise<void> {
@@ -36,7 +39,7 @@ async function buildDts(): Promise<void> {
 
 	// biome-ignore lint/suspicious/noConsole: script file
 	// biome-ignore lint/suspicious/noConsoleLog: script file
-	console.log(`🚀 built definitions files in ${Date.now() - time} ms`);
+	console.log(`📘 built definitions files in ${Date.now() - time} ms`);
 }
 
 async function extractDts(): Promise<void> {
@@ -49,12 +52,12 @@ async function extractDts(): Promise<void> {
 		console.error(stderr);
 	}
 
-	await rimraf("./build/*", { glob: true });
+	await rimraf("./build/**/*.d.ts", { glob: true });
 	await fs.rename("trimmed.d.ts", "build/index.d.ts");
 
 	// biome-ignore lint/suspicious/noConsole: script file
 	// biome-ignore lint/suspicious/noConsoleLog: script file
-	console.log(`🚀 extracted definitions files in ${Date.now() - time} ms`);
+	console.log(`📘 extracted definitions files in ${Date.now() - time} ms`);
 }
 
 async function build(): Promise<void> {
@@ -62,7 +65,7 @@ async function build(): Promise<void> {
 
 	await esbuild({
 		platform: "node",
-		target: "node21",
+		target: esbuildTarget,
 		format: "esm",
 		nodePaths: [srcPath],
 		sourcemap: true,
@@ -74,12 +77,18 @@ async function build(): Promise<void> {
 
 	// biome-ignore lint/suspicious/noConsole: script file
 	// biome-ignore lint/suspicious/noConsoleLog: script file
-	console.log(`🚀 bundled in ${Date.now() - time}ms`);
+	console.log(`📦 bundled in ${Date.now() - time}ms`);
 }
 
 if (process.argv[1] === import.meta.filename) {
+	const time = Date.now();
+
 	await clear();
 	await buildDts();
 	await extractDts();
 	await build();
+
+	// biome-ignore lint/suspicious/noConsole: script file
+	// biome-ignore lint/suspicious/noConsoleLog: script file
+	console.log("🚀 built in", Date.now() - time, "ms");
 }

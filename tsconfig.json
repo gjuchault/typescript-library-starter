@@ -5,19 +5,30 @@
 		"module": "nodenext",
 		"target": "es2022",
 		"moduleResolution": "nodenext",
+		"esModuleInterop": true,
+		"resolveJsonModule": true,
+		"allowImportingTsExtensions": true,
 
 		"rootDir": "./src",
 		"outDir": "build",
 
+		// strict checks
 		"strict": true,
 		"noUncheckedIndexedAccess": true,
-		"sourceMap": true,
-		"esModuleInterop": true,
-		"skipLibCheck": true,
+		"allowUnusedLabels": false,
+		"allowUnreachableCode": false,
+		"exactOptionalPropertyTypes": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitOverride": true,
+		"noImplicitReturns": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
 		"forceConsistentCasingInFileNames": true,
+
+		"sourceMap": true,
+		"skipLibCheck": true,
 		"declaration": true,
-		"resolveJsonModule": true,
-		"emitDeclarationOnly": true,
-		"allowImportingTsExtensions": true
+		"emitDeclarationOnly": true
 	}
 }
