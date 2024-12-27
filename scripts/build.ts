@@ -15,6 +15,7 @@ async function clear(): Promise<void> {
 
 	await fs.rm(buildPath, { recursive: true, force: true });
 
+	// biome-ignore lint/suspicious/noConsole: script file
 	// biome-ignore lint/suspicious/noConsoleLog: script file
 	console.log(`🚀 cleared in ${Date.now() - time}ms`);
 }
@@ -29,9 +30,11 @@ async function buildDts(): Promise<void> {
 	]);
 
 	if (stderr) {
+		// biome-ignore lint/suspicious/noConsole: script file
 		console.error(stderr);
 	}
 
+	// biome-ignore lint/suspicious/noConsole: script file
 	// biome-ignore lint/suspicious/noConsoleLog: script file
 	console.log(`🚀 built definitions files in ${Date.now() - time} ms`);
 }
@@ -42,12 +45,14 @@ async function extractDts(): Promise<void> {
 	const { stderr } = await execFile("api-extractor", ["run"]);
 
 	if (stderr) {
+		// biome-ignore lint/suspicious/noConsole: script file
 		console.error(stderr);
 	}
 
 	await rimraf("./build/*", { glob: true });
 	await fs.rename("trimmed.d.ts", "build/index.d.ts");
 
+	// biome-ignore lint/suspicious/noConsole: script file
 	// biome-ignore lint/suspicious/noConsoleLog: script file
 	console.log(`🚀 extracted definitions files in ${Date.now() - time} ms`);
 }
@@ -67,6 +72,7 @@ async function build(): Promise<void> {
 		outdir: buildPath,
 	});
 
+	// biome-ignore lint/suspicious/noConsole: script file
 	// biome-ignore lint/suspicious/noConsoleLog: script file
 	console.log(`🚀 bundled in ${Date.now() - time}ms`);
 }

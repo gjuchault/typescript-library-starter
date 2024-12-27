@@ -10,7 +10,7 @@ async function testSetup() {
 			"git config --global --get user.email",
 		);
 
-		if (!gitEmail.trim().length) {
+		if (gitEmail.trim().length === 0) {
 			await exec("git config --global user.email actions@github.com");
 			await exec("git config --global user.name GithubActions");
 		}

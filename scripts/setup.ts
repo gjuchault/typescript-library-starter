@@ -82,6 +82,18 @@ export async function run({
 	await commitAll("chore: typescript-library-startup");
 }
 
+const packageNameRegexp = /Typescript Library Starter/;
+const packageSlugRegexp = /typescript-library-starter/;
+const testSetupRegexp = /, test-setup/i;
+const packageDescriptionRegexp = /[^\n]+"description[^\n]+\n/;
+const packageKeywordsRegexp = /[^\n]+"keywords[^\]]+\],\n/;
+const packageHomepageRegexp = /[^\n]+"homepage[^\n]+\n/;
+const packageBugsRegexp = /[^\n]+"bugs[^\n]+\n/;
+const packageAuthorRegexp = /[^\n]+"author[^\n]+\n/;
+const packageRepositoryRegexp = /[^\n]+"repository[^\n]+\n/;
+const packageSetupRegexp = /[^\n]+"setup[^\n]+\n/;
+const packageTestSetupRegexp = /[^\n]+"test:setup[^\n]+\n/;
+
 async function applyPackageName({
 	packageName,
 	githubUserName,
@@ -108,10 +120,10 @@ async function applyPackageName({
 		replaceInFile(
 			workflowPath,
 			new Map<string | RegExp, string>([
-				[/Typescript Library Starter/, packageName],
-				[/typescript-library-starter/, packageSlug],
+				[packageNameRegexp, packageName],
+				[packageSlugRegexp, packageSlug],
 				[setupAction, ""],
-				[/, test-setup/i, ""],
+				[testSetupRegexp, ""],
 			]),
 		),
 	);
@@ -178,14 +190,14 @@ async function applyPackageName({
 			packageJsonPath,
 			new Map<string | RegExp, string>([
 				["@gjuchault/typescript-library-starter", packageName],
-				[/[^\n]+"description[^\n]+\n/, ""],
-				[/[^\n]+"keywords[^\]]+\],\n/, ""],
-				[/[^\n]+"homepage[^\n]+\n/, ""],
-				[/[^\n]+"bugs[^\n]+\n/, ""],
-				[/[^\n]+"author[^\n]+\n/, ""],
-				[/[^\n]+"repository[^\n]+\n/, ""],
-				[/[^\n]+"setup[^\n]+\n/, ""],
-				[/[^\n]+"test:setup[^\n]+\n/, ""],
+				[packageDescriptionRegexp, ""],
+				[packageKeywordsRegexp, ""],
+				[packageHomepageRegexp, ""],
+				[packageBugsRegexp, ""],
+				[packageAuthorRegexp, ""],
+				[packageRepositoryRegexp, ""],
+				[packageSetupRegexp, ""],
+				[packageTestSetupRegexp, ""],
 			]),
 		),
 	);
