@@ -9,8 +9,8 @@ await describe("foobar()", async () => {
 		const second = 2;
 
 		await describe("when called", async () => {
-			await it("returns the sum of them multiplied by 3", () => {
-				equal(foobar(first, second), 9);
+			await it("returns the sum of them multiplied by 3 + extra", () => {
+				equal(foobar(first, second), 12);
 			});
 		});
 	});

@@ -42,6 +42,10 @@ if (isMain(import.meta)) {
 		await runTests();
 	}
 
+	if (process.argv[2] === "test:inspect") {
+		await runTests(["--inspect"]);
+	}
+
 	if (process.argv[2] === "test:watch") {
 		await runTests(["--watch"]);
 	}

@@ -6,8 +6,10 @@
 			"type": "shell",
 			"command": "node",
 			"args": [
-				"--import=@nitrogql/esbuild-register",
-				"--test",
+				"--disable-warning=ExperimentalWarning",
+				"--experimental-strip-types",
+				"./scripts/test.ts",
+				"test",
 				"${relativeFile}"
 			],
 			"presentation": {
