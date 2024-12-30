@@ -1,12 +1,19 @@
 import { spawn } from "node:child_process";
 import isMain from "is-main";
 
-async function runTests(
-	nodeOptions: string[] = [],
+async function runTests({
+	nodeOptions = [],
+	filesFilter = "",
 	program = "node",
-	programOptions: string[] = [],
-	env: Record<string, string> = {},
-): Promise<void> {
+	programOptions = [],
+	env = {},
+}: {
+	nodeOptions?: string[];
+	filesFilter?: string;
+	program?: string;
+	programOptions?: string[];
+	env?: Record<string, string>;
+}): Promise<void> {
 	const time = Date.now();
 
 	return new Promise((resolve, reject) => {
@@ -18,7 +25,7 @@ async function runTests(
 				"--experimental-strip-types",
 				"--test",
 				...nodeOptions,
-				"src/**/*.test.ts",
+				filesFilter !== "" ? filesFilter : "src/**/*.test.ts",
 			],
 			{ stdio: "inherit", env: { ...process.env, ...env } },
 		);
@@ -38,27 +45,29 @@ async function runTests(
 }
 
 if (isMain(import.meta)) {
+	const filesFilter = process.argv.slice(3).join(" ").trim();
+
 	if (process.argv[2] === "test") {
-		await runTests();
+		await runTests({ filesFilter });
 	}
 
 	if (process.argv[2] === "test:inspect") {
-		await runTests(["--inspect"]);
+		await runTests({ nodeOptions: ["--inspect"], filesFilter });
 	}
 
 	if (process.argv[2] === "test:watch") {
-		await runTests(["--watch"]);
+		await runTests({ nodeOptions: ["--watch"], filesFilter });
 	}
 
 	if (process.argv[2] === "test:coverage") {
-		await runTests(
-			["--experimental-test-coverage"],
-			"c8",
-			["-r", "html", "node"],
-			{
+		await runTests({
+			nodeOptions: ["--experimental-test-coverage"],
+			program: "c8",
+			programOptions: ["-r", "html", "node"],
+			env: {
 				// biome-ignore lint/style/useNamingConvention: node options
 				NODE_V8_COVERAGE: "./coverage",
 			},
-		);
+		});
 	}
 }
