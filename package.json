@@ -44,7 +44,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
-		"@microsoft/api-extractor": "^7.52.2",
+		"@microsoft/api-extractor": "^7.52.3",
 		"@ryansonshine/commitizen": "^4.2.8",
 		"@ryansonshine/cz-conventional-changelog": "^3.3.4",
 		"@semantic-release/changelog": "^6.0.3",
