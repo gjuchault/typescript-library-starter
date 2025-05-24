@@ -60,7 +60,7 @@
 		"is-main": "^0.4.0",
 		"prompts": "^2.4.2",
 		"rimraf": "^6.0.1",
-		"semantic-release": "^24.2.4",
+		"semantic-release": "^24.2.5",
 		"slugify": "^1.6.6",
 		"typescript": "^5.8.3"
 	}
