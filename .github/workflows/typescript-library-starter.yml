@@ -114,7 +114,20 @@ jobs:
       - name: 🔨 Build
         run: node --run build
       - name: 🚀 Release
+        if: github.ref == 'refs/heads/main'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: node --run semantic-release
+
+      - name: 👀 Preview release
+        id: pack
+        if: github.ref != 'refs/heads/main'
+        run: echo "TARBALL=$(npm pack)" >> $GITHUB_OUTPUT
+
+      - name: 📦 Upload package
+        if: github.ref != 'refs/heads/main'
+        uses: actions/upload-artifact@v4
+        with:
+          name: package
+          path: ${{ steps.pack.outputs.TARBALL }}
