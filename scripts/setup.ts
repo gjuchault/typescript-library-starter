@@ -253,6 +253,8 @@ async function logAsyncTask<Resolve>(
 
 	const output = await promise;
 
+	process.stdout.write(" ✅\n");
+
 	return output;
 }
 

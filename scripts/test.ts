@@ -32,8 +32,6 @@ async function runTests({
 
 		nodeProcess.on("close", (code) => {
 			if (code === 0) {
-				// biome-ignore lint/suspicious/noConsole: script file
-				// biome-ignore lint/suspicious/noConsoleLog: script file
 				console.log(`🚀 ran tests in ${Date.now() - time}ms`);
 
 				resolve();
@@ -65,7 +63,6 @@ if (isMain(import.meta)) {
 			program: "c8",
 			programOptions: ["-r", "html", "node"],
 			env: {
-				// biome-ignore lint/style/useNamingConvention: node options
 				NODE_V8_COVERAGE: "./coverage",
 			},
 		});
