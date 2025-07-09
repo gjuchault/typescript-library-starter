@@ -29,7 +29,7 @@
 	},
 	"scripts": {
 		"setup": "node --experimental-strip-types ./scripts/setup.ts",
-		"build": "tsgo --project tsconfig.build.json",
+		"build": "rimraf build && tsgo --project tsconfig.build.json",
 		"clean": "rimraf build coverage",
 		"type:check": "tsgo --project tsconfig.json",
 		"lint": "biome check . --write --unsafe",

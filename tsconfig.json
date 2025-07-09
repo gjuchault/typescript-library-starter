@@ -29,7 +29,9 @@
 		"skipLibCheck": true,
 		"declaration": true,
 
-		"allowImportingTsExtensions": true,
+		// we allow ts extensions on relative path imports, they will be rewritten
+		// with rewriteRelativeImportExtensions
+		"rewriteRelativeImportExtensions": true,
 		"noEmit": true
 	}
 }
