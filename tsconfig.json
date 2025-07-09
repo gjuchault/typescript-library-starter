@@ -2,12 +2,11 @@
 	"include": ["./src/**/*.ts"],
 	"compilerOptions": {
 		"lib": ["es2023"],
-		"module": "nodenext",
+		"module": "preserve",
 		"target": "es2022",
-		"moduleResolution": "nodenext",
+		"moduleResolution": "bundler",
 		"esModuleInterop": true,
 		"resolveJsonModule": true,
-		"allowImportingTsExtensions": true,
 
 		"rootDir": "./src",
 		"outDir": "build",
@@ -29,6 +28,10 @@
 		"sourceMap": true,
 		"skipLibCheck": true,
 		"declaration": true,
-		"emitDeclarationOnly": true
+
+		// we allow ts extensions on relative path imports, they will be rewritten
+		// with rewriteRelativeImportExtensions
+		"rewriteRelativeImportExtensions": true,
+		"noEmit": true
 	}
 }

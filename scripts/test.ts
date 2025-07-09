@@ -17,18 +17,20 @@ async function runTests({
 	const time = Date.now();
 
 	return new Promise((resolve, reject) => {
-		const nodeProcess = spawn(
-			program,
-			[
-				...programOptions,
-				"--disable-warning=ExperimentalWarning",
-				"--experimental-strip-types",
-				"--test",
-				...nodeOptions,
-				filesFilter !== "" ? filesFilter : "src/**/*.test.ts",
-			],
-			{ stdio: "inherit", env: { ...process.env, ...env } },
-		);
+		const options = [
+			...programOptions,
+			"--experimental-strip-types",
+			"--test",
+			...nodeOptions,
+			filesFilter !== "" ? filesFilter : "src/**/*.test.ts",
+		];
+
+		console.log(`${program} ${options.join(" ")}`);
+
+		const nodeProcess = spawn(program, options, {
+			stdio: "inherit",
+			env: { ...process.env, ...env },
+		});
 
 		nodeProcess.on("close", (code) => {
 			if (code === 0) {

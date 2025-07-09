@@ -1,2 +1,9 @@
 node_modules/
 coverage/
+.github/
+.vscode/
+scripts/
+src/
+.cspell.json
+.releaserc.json
+biome.json

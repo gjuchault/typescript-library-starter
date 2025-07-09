@@ -35,7 +35,7 @@ TypeScript Library Starter relies on [Volta](https://volta.sh/) to ensure the No
 
 ### TypeScript
 
-Leverages [esbuild](https://github.com/evanw/esbuild) for blazing-fast builds but keeps `tsc` to generate `.d.ts` files.
+Leverages [Typescript 7](https://github.com/microsoft/typescript-go) for blazing-fast builds and type-checking.
 Generates a single ESM build.
 
 Commands:

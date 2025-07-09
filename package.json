@@ -28,23 +28,22 @@
 		"access": "public"
 	},
 	"scripts": {
-		"setup": "node --disable-warning=ExperimentalWarning --experimental-strip-types ./scripts/setup.ts",
-		"build": "node --disable-warning=ExperimentalWarning --experimental-strip-types  ./scripts/build.ts",
+		"setup": "node --experimental-strip-types ./scripts/setup.ts",
+		"build": "rimraf build && tsgo --project tsconfig.build.json",
 		"clean": "rimraf build coverage",
-		"type:check": "tsc --noEmit",
+		"type:check": "tsgo --project tsconfig.json",
 		"lint": "biome check . --write --unsafe",
 		"lint:check": "biome ci .",
-		"test": "node --disable-warning=ExperimentalWarning --experimental-strip-types ./scripts/test.ts test",
-		"test:watch": "node --disable-warning=ExperimentalWarning --experimental-strip-types ./scripts/test.ts test:watch",
-		"test:coverage": "node --disable-warning=ExperimentalWarning --experimental-strip-types ./scripts/test.ts test:coverage",
-		"test:setup": "node --disable-warning=ExperimentalWarning --experimental-strip-types ./scripts/test-setup.ts",
+		"test": "node --experimental-strip-types ./scripts/test.ts test",
+		"test:watch": "node --experimental-strip-types ./scripts/test.ts test:watch",
+		"test:coverage": "node --experimental-strip-types ./scripts/test.ts test:coverage",
+		"test:setup": "node --experimental-strip-types ./scripts/test-setup.ts",
 		"spell:check": "cspell \"{README.md,CODE_OF_CONDUCT.md,CONTRIBUTING.md,.github/*.md,src/**/*.ts}\"",
 		"cz": "cz",
 		"semantic-release": "semantic-release"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.1.1",
-		"@microsoft/api-extractor": "^7.52.8",
 		"@ryansonshine/commitizen": "^4.2.8",
 		"@ryansonshine/cz-conventional-changelog": "^3.3.4",
 		"@semantic-release/changelog": "^6.0.3",
@@ -54,6 +53,7 @@
 		"@semantic-release/release-notes-generator": "^14.0.3",
 		"@types/node": "^24.0.11",
 		"@types/prompts": "^2.4.9",
+		"@typescript/native-preview": "^7.0.0-dev.20250708.1",
 		"c8": "^10.1.3",
 		"cspell": "^9.1.3",
 		"esbuild": "^0.25.6",
@@ -61,7 +61,6 @@
 		"prompts": "^2.4.2",
 		"rimraf": "^6.0.1",
 		"semantic-release": "^24.2.6",
-		"slugify": "^1.6.6",
-		"typescript": "^5.8.3"
+		"slugify": "^1.6.6"
 	}
 }
