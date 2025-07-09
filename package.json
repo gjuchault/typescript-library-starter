@@ -28,16 +28,16 @@
 		"access": "public"
 	},
 	"scripts": {
-		"setup": "node --experimental-strip-types ./scripts/setup.ts",
+		"setup": "node ./scripts/setup.ts",
 		"build": "rimraf build && tsgo --project tsconfig.build.json",
 		"clean": "rimraf build coverage",
 		"type:check": "tsgo --project tsconfig.json",
 		"lint": "biome check . --write --unsafe",
 		"lint:check": "biome ci .",
-		"test": "node --experimental-strip-types ./scripts/test.ts test",
-		"test:watch": "node --experimental-strip-types ./scripts/test.ts test:watch",
-		"test:coverage": "node --experimental-strip-types ./scripts/test.ts test:coverage",
-		"test:setup": "node --experimental-strip-types ./scripts/test-setup.ts",
+		"test": "node ./scripts/test.ts test",
+		"test:watch": "node ./scripts/test.ts test:watch",
+		"test:coverage": "node ./scripts/test.ts test:coverage",
+		"test:setup": "node ./scripts/test-setup.ts",
 		"spell:check": "cspell \"{README.md,CODE_OF_CONDUCT.md,CONTRIBUTING.md,.github/*.md,src/**/*.ts}\"",
 		"cz": "cz",
 		"semantic-release": "semantic-release"
