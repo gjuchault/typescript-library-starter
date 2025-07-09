@@ -5,13 +5,7 @@
 			"label": "Run Current Test File",
 			"type": "shell",
 			"command": "node",
-			"args": [
-				"--disable-warning=ExperimentalWarning",
-				"--experimental-strip-types",
-				"./scripts/test.ts",
-				"test",
-				"${relativeFile}"
-			],
+			"args": ["./scripts/test.ts", "test", "${relativeFile}"],
 			"presentation": {
 				"clear": true,
 				"showReuseMessage": false,

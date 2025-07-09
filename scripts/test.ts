@@ -19,7 +19,6 @@ async function runTests({
 	return new Promise((resolve, reject) => {
 		const options = [
 			...programOptions,
-			"--experimental-strip-types",
 			"--test",
 			...nodeOptions,
 			filesFilter !== "" ? filesFilter : "src/**/*.test.ts",
