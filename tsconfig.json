@@ -1,7 +1,14 @@
 {
+	"$schema": "https://json.schemastore.org/tsconfig",
 	"include": ["./src/**/*.ts"],
 	"compilerOptions": {
-		"lib": ["es2023"],
+		"lib": [
+			"es2024",
+			"ESNext.Array",
+			"ESNext.Collection",
+			"ESNext.Iterator",
+			"ESNext.Promise"
+		],
 		"module": "preserve",
 		"target": "es2022",
 		"moduleResolution": "bundler",
