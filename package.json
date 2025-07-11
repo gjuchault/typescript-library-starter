@@ -44,8 +44,6 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.1.1",
-		"@ryansonshine/commitizen": "^4.2.8",
-		"@ryansonshine/cz-conventional-changelog": "^3.3.4",
 		"@semantic-release/changelog": "^6.0.3",
 		"@semantic-release/commit-analyzer": "^13.0.1",
 		"@semantic-release/github": "^11.0.3",
@@ -55,12 +53,19 @@
 		"@types/prompts": "^2.4.9",
 		"@typescript/native-preview": "^7.0.0-dev.20250708.1",
 		"c8": "^10.1.3",
+		"commitizen": "^4.3.1",
 		"cspell": "^9.1.3",
+		"cz-conventional-changelog": "^3.3.0",
 		"esbuild": "^0.25.6",
 		"is-main": "^0.4.0",
 		"prompts": "^2.4.2",
 		"rimraf": "^6.0.1",
 		"semantic-release": "^24.2.6",
 		"slugify": "^1.6.6"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
 	}
 }
