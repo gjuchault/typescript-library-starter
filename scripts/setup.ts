@@ -109,10 +109,14 @@ async function applyPackageName({
 	const setupAction = `  test-setup:
     name: ⚡ Setup tests
     runs-on: ubuntu-latest
+    needs: [dependencies]
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-      - uses: bahmutov/npm-install@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
+          cache: "npm"
+      - run: npm ci
       - name: ⚡ Tests
         run: node --run test:setup\n\n`;
 
