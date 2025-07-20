@@ -7,3 +7,5 @@ src/
 .cspell.json
 .releaserc.json
 biome.json
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
