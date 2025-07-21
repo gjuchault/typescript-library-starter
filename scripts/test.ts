@@ -1,5 +1,4 @@
 import { spawn } from "node:child_process";
-import isMain from "is-main";
 
 async function runTests({
 	nodeOptions = [],
@@ -43,7 +42,9 @@ async function runTests({
 	});
 }
 
-if (isMain(import.meta)) {
+// TODO: remove once released in @types/node
+const isMain = (import.meta as unknown as { main: boolean }).main;
+if (isMain) {
 	const filesFilter = process.argv.slice(3).join(" ").trim();
 
 	if (process.argv[2] === "test") {

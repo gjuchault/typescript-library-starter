@@ -3,7 +3,6 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import url from "node:url";
 import { promisify } from "node:util";
-import isMain from "is-main";
 import prompts from "prompts";
 import slugify from "slugify";
 
@@ -262,6 +261,8 @@ async function logAsyncTask<Resolve>(
 	return output;
 }
 
-if (isMain(import.meta)) {
+// TODO: remove once released in @types/node
+const isMain = (import.meta as unknown as { main: boolean }).main;
+if (isMain) {
 	await setup();
 }

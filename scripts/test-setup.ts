@@ -1,6 +1,5 @@
 import childProcess from "node:child_process";
 import { promisify } from "node:util";
-import isMain from "is-main";
 import { run } from "./setup.ts";
 
 const exec = promisify(childProcess.exec);
@@ -59,6 +58,8 @@ async function testNoGrep(pattern: string) {
 	}
 }
 
-if (isMain(import.meta)) {
+// TODO: remove once released in @types/node
+const isMain = (import.meta as unknown as { main: boolean }).main;
+if (isMain) {
 	await testSetup();
 }
