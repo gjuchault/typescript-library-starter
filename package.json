@@ -59,7 +59,7 @@
 		"is-main": "^0.4.0",
 		"prompts": "^2.4.2",
 		"rimraf": "^6.1.0",
-		"semantic-release": "^24.2.9",
+		"semantic-release": "^25.0.2",
 		"slugify": "^1.6.6"
 	},
 	"config": {
