@@ -6,9 +6,6 @@ permissions:
   id-token: write  # Required for OIDC
   contents: write
 
-env:
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
 jobs:
   dependencies:
     name: 📦 Dependencies
