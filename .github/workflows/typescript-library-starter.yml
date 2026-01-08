@@ -2,6 +2,10 @@ name: Typescript Library Starter
 
 on: [push]
 
+permissions:
+  id-token: write  # Required for OIDC
+  contents: write
+
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -117,7 +121,6 @@ jobs:
         if: github.ref == 'refs/heads/main'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: node --run semantic-release
 
       - name: 👀 Preview release
