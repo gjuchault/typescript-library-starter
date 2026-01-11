@@ -8,7 +8,7 @@
 			"autoAttachChildProcesses": true,
 			"skipFiles": ["<node_internals>/**", "**/node_modules/**"],
 			"program": "${relativeFile}",
-			"runtimeArgs": ["./scripts/test.ts", "test:inspect"],
+			"runtimeArgs": ["--test", "--inspect"],
 			"smartStep": true,
 			"console": "integratedTerminal"
 		}

@@ -24,7 +24,7 @@ const issueConfigPath = path.join(
 	".github/ISSUE_TEMPLATE/config.yml",
 );
 const codeOfConductPath = path.join(rootPath, "CODE_OF_CONDUCT.md");
-
+const readmePath = path.join(rootPath, "README.md");
 interface Input {
 	packageName: string;
 	githubUserName: string;
@@ -188,6 +188,19 @@ async function applyPackageName({
 	);
 
 	await logAsyncTask(
+		"Editing README.md",
+		replaceInFile(
+			readmePath,
+			new Map([
+				[
+					"gjuchault/typescript-library-starter",
+					`${githubUserName}/${packageName}`,
+				],
+			]),
+		),
+	);
+
+	await logAsyncTask(
 		"Editing package.json",
 
 		replaceInFile(
@@ -210,19 +223,15 @@ async function applyPackageName({
 async function cleanup({ packageName }: { packageName: string }) {
 	await logAsyncTask(
 		"Removing dependencies",
-		exec("npm uninstall slugify prompts"),
+		exec("npm uninstall slugify prompts @types/prompts"),
 	);
 	await logAsyncTask(
 		"Cleaning cspell",
 		replaceInFile(cspellPath, new Map([["gjuchault", packageName]])),
 	);
 	await logAsyncTask(
-		"Removing setup script",
-		fs.rm(path.join(scriptsPath, "setup.ts")),
-	);
-	await logAsyncTask(
-		"Removing test-setup script",
-		fs.rm(path.join(scriptsPath, "test-setup.ts")),
+		"Removing scripts folder",
+		fs.rm(path.join(scriptsPath), { recursive: true }),
 	);
 }
 
@@ -261,8 +270,6 @@ async function logAsyncTask<Resolve>(
 	return output;
 }
 
-// TODO: remove once released in @types/node
-const isMain = (import.meta as unknown as { main: boolean }).main;
-if (isMain) {
+if (import.meta.main) {
 	await setup();
 }

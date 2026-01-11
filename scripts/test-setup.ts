@@ -58,8 +58,6 @@ async function testNoGrep(pattern: string) {
 	}
 }
 
-// TODO: remove once released in @types/node
-const isMain = (import.meta as unknown as { main: boolean }).main;
-if (isMain) {
+if (import.meta.main) {
 	await testSetup();
 }
