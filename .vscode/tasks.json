@@ -5,7 +5,7 @@
 			"label": "Run Current Test File",
 			"type": "shell",
 			"command": "node",
-			"args": ["./scripts/test.ts", "test", "${relativeFile}"],
+			"args": ["--test", "${relativeFile}"],
 			"presentation": {
 				"clear": true,
 				"showReuseMessage": false,
