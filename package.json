@@ -23,6 +23,7 @@
 		"node": "25.2.1",
 		"npm": "11.6.2"
 	},
+	"packageManager": "npm@11.6.2",
 	"publishConfig": {
 		"access": "public"
 	},
